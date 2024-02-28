@@ -64,7 +64,14 @@ const MockAdapter = require('@bot-whatsapp/database/mock')
 
 const flujoPrincipal = addKeyword(['Hola','ola', 'oli','oa','buenas', 'buenos dias','buenas tardes','buenas noches'])
 .addAnswer('👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?')
-.addAnswer('Escribeme *Menu* para ver mas opciones')
+.addAnswer('Escribeme *Menu* para ver mas opciones', {capture: true}, (ctx,{ fallBack })=> {
+    if(!ctx.body.includes("Menu")) {
+        return fallBack()
+    }
+    console.log("Mensaje entrante: ", ctx.body)
+},
+
+ )
 
 const flujoSecundario = addKeyword(['Gracias', 'Muchas gracias']).addAnswer('De nada! 👌 Espero haberte ayudado')
 
@@ -84,7 +91,7 @@ const flujoMenu = addKeyword('Menu').addAnswer('📋 Soy Eribot y puedo ayudarte
 
 const main = async () => {
     const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([flujoPrincipal, flujoSecundario, flujoMenu, flujoContrasena])
+    const adapterFlow = createFlow([flujoPrincipal, flujoSecundario, flujoMenu])
     const adapterProvider = createProvider(BaileysProvider)
 
     createBot({
