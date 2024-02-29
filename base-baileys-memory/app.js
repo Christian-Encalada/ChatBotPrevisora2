@@ -72,9 +72,15 @@ const flujoMenu = addKeyword('Menu').addAnswer('📋 Soy Eribot y puedo ayudarte
             if (ctx.body.includes("Terminar")) {
                 console.log("Mensaje entrante: ", ctx.body);
                 return fallBack("¡Hasta luego! Gracias por usar Eribot.");
-            } else if (!ctx.body.includes("Menu")) {
-                console.log("Mensaje entrante: ", ctx.body);
-                return fallBack("Por favor, escribe *Menu* para ver las opciones disponibles o *Terminar* para finalizar la conversación.");
+            } else {
+                const optionSelected = ctx.body.trim(); // Eliminar espacios en blanco al principio y al final
+                if (["1", "2", "3"].includes(optionSelected)) {
+                    console.log("Mensaje entrante: ", ctx.body);
+                    return;
+                } else {
+                    console.log("Mensaje entrante: ", ctx.body);
+                    return fallBack("Por favor, escribe *1, 2 o 3* para ver las opciones disponibles o *Terminar* para finalizar la conversación.");
+                }
             }
         },
         [flujoContrasena, flujoInternet, flujoComputador]
@@ -82,16 +88,27 @@ const flujoMenu = addKeyword('Menu').addAnswer('📋 Soy Eribot y puedo ayudarte
 
 
 
+// Flujo principal
+const flujoPrincipal = addKeyword(['Hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
+    .addAnswer('👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?')
+    .addAnswer(
+        [
+            'Escribeme *Menu* para ver más opciones',
+            "También puedes escribir *Terminar* para finalizar la conversación"
+        ],
+        { capture: true },
+        (ctx, { fallBack }) => {
+            if (!ctx.body.includes("Menu")) {
+                console.log("Mensaje entrante: ", ctx.body);
+                return fallBack();
+            } else {
+                console.log("Mensaje entrante: ", ctx.body);
+                return null;
+            }
+        },
+        [flujoMenu, flujoFin]
+    );
 
-//flujo main
-const flujoPrincipal = addKeyword(['Hola','ola', 'oli','oa','buenas', 'buenos dias','buenas tardes','buenas noches'])
-.addAnswer('👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?')
-.addAnswer(
-    ['Escribeme *Menu* para ver mas opciones', 
-    "También puedes escribir *Terminar* para finalizar la conversación"], 
-    null,
-    null,
-    [flujoMenu, flujoFin])
 
 
 
