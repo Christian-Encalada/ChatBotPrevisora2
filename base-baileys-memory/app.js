@@ -57,25 +57,28 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
 
 
 
-
- //flujo para las opciones del menu
- const flujoMenu = addKeyword('Menu').addAnswer('📋 Soy Eribot y puedo ayudarte con lo siguiente:',  { capture: true }, (ctx, { fallBack }) => {
-    if (!ctx.body.includes("Menu")) {
-        console.log("Mensaje entrante:", ctx.body); // Aquí se imprime en la consola lo que escriba el usuario
-        return fallBack();
-    }})
-
-.addAnswer(
-    [    '1. 🎉 Problemas de Contraseñas',
-         '2. 🎁 Problemas con el Internet',
-         '3. 🚀 Problemas con el Computador',
-         'Escribe el numero *1* *2* o *3* segun tu necesidad en el chat 👆',
-         "También puedes escribir *Terminar* para finalizar la conversación"],
-         null,
-         null,
-    
-        [flujoContrasena, flujoInternet, flujoComputador, flujoFin])
-  
+// Flujo para las opciones del menú
+const flujoMenu = addKeyword('Menu').addAnswer('📋 Soy Eribot y puedo ayudarte con lo siguiente:')
+    .addAnswer(
+        [
+            '1. 🎉 Problemas de Contraseñas',
+            '2. 🎁 Problemas con el Internet',
+            '3. 🚀 Problemas con el Computador',
+            'Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆',
+            "También puedes escribir *Terminar* para finalizar la conversación"
+        ],
+        { capture: true },
+        (ctx, { fallBack }) => {
+            if (ctx.body.includes("Terminar")) {
+                console.log("Mensaje entrante: ", ctx.body);
+                return fallBack("¡Hasta luego! Gracias por usar Eribot.");
+            } else if (!ctx.body.includes("Menu")) {
+                console.log("Mensaje entrante: ", ctx.body);
+                return fallBack("Por favor, escribe *Menu* para ver las opciones disponibles o *Terminar* para finalizar la conversación.");
+            }
+        },
+        [flujoContrasena, flujoInternet, flujoComputador]
+    );
 
 
 
