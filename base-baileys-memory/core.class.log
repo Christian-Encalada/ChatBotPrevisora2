@@ -1,0 +1,130 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB050C103CD7FFF0CC9A0',
+    participant: undefined
+  },
+  messageTimestamp: 1709243429,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'oli',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'oli',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_98bcdcac-3308-451c-870e-2a1372233b74',
+  keyword: 'key_c7bb1a30-53f5-4063-8965-31b87e81e697',
+  answer: '👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '942a3e7a238213f10ae6503b46fd9a60'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_9996e3e4-84c5-49ed-8a49-bdfd142cf2d1',
+  keyword: 'ans_98bcdcac-3308-451c-870e-2a1372233b74',
+  answer: 'Escribeme *Menu* para ver más opciones\n' +
+    'También puedes escribir *Terminar* para finalizar la conversación',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [ [Object], [Object], [Object], [Object], [Object] ],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'eb75c2947c9846c18753a1e4bce13133'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0AA7B2DD5736516D0B8',
+    participant: undefined
+  },
+  messageTimestamp: 1709243433,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'menu',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'menu',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_131b15c8-bfc5-4b13-b418-c388a04c506d',
+  keyword: 'key_8d1cc8d1-e795-4dad-987d-df3486e49eca',
+  answer: '📋 Soy Eribot y puedo ayudarte con lo siguiente:',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'e25421dd493c48bc175b6e3b3bd483f5'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_9e34ceea-5106-463f-9294-579ac7907774',
+  keyword: 'ans_131b15c8-bfc5-4b13-b418-c388a04c506d',
+  answer: '1. 🎉 Problemas de Contraseñas\n' +
+    '2. 🎁 Problemas con el Internet\n' +
+    '3. 🚀 Problemas con el Computador\n' +
+    'Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆\n' +
+    'También puedes escribir *Terminar* para finalizar la conversación',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '2e34b489357340f2c96f0d0958cd427c'
+}

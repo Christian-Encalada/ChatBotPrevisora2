@@ -98,7 +98,7 @@ const flujoPrincipal = addKeyword(['Hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
         ],
         { capture: true },
         (ctx, { fallBack }) => {
-            if (!ctx.body.includes("Menu")) {
+            if (!ctx.body.includes(["Menu", "menu"])) {
                 console.log("Mensaje entrante: ", ctx.body);
                 return fallBack();
             } else {
