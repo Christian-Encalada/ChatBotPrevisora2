@@ -2,7 +2,17 @@ const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require
 
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
-const MockAdapter = require('@bot-whatsapp/database/mock')
+const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
+
+/**
+ * Declaramos las conexiones de PostgreSQL
+ */
+
+const POSTGRES_DB_HOST = 'localhost'
+const POSTGRES_DB_USER = 'postgres'
+const POSTGRES_DB_PASSWORD = '12345'
+const POSTGRES_DB_NAME = 'chatBot'
+const POSTGRES_DB_PORT = '5432'
 
 //flujo fin
 const flujoFin = addKeyword("terminar").addAnswer("¡Hasta luego! Gracias por usar Eribot. 🤖")
@@ -118,7 +128,13 @@ const flujoBotones = addKeyword(["botones", "boton"]).addAnswer('Mira estas opci
 })
 
 const main = async () => {
-    const adapterDB = new MockAdapter()
+    const adapterDB = new PostgreSQLAdapter({
+        host: POSTGRES_DB_HOST,
+        user: POSTGRES_DB_USER,
+        database: POSTGRES_DB_NAME,
+        password: POSTGRES_DB_PASSWORD,
+        port: POSTGRES_DB_PORT,
+    })
     const adapterFlow = createFlow([flujoPrincipal, flujoSecundario, flujoBotones])
     const adapterProvider = createProvider(BaileysProvider)
 
@@ -132,3 +148,4 @@ const main = async () => {
 }
 
 main()
+
