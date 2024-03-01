@@ -13,11 +13,13 @@ const flujoInternet = addKeyword("2").addAnswer("PROBANDO... PROBANDO *FUNCION A
 //flujo problemas computador
 const flujoComputador = addKeyword("3").addAnswer("PROBANDO... PROBANDO *FUNCION AUN NO DISPONIBLE 🎠*")
 
-//flujo 
+//flujo olvide contraseña
 const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! Aquí están los pasos para recuperar tu contraseña:", {
-    media:'C:/Users/DYNABOOK/ChatBotPrevisora2/base-baileys-memory/images/pruebas.png',
-
+    media:'C:/Users/DYNABOOK/ChatBotPrevisora2/base-baileys-memory/images/pruebas.png'
     })
+.addAnswer("👇",{
+    media: 'C:/Users/DYNABOOK/ChatBotPrevisora2/base-baileys-memory/images/prueba 2.png'
+})
 .addAnswer(["1. Ve a nuestro sitio web ",
             "2. haz clic en 'Olvidé mi contraseña' ",
             "3. Sigue las instrucciones para restablecer tu contraseña",
@@ -106,11 +108,18 @@ const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
  //flujo Secundario
 const flujoSecundario = addKeyword(['Gracias', 'Muchas gracias']).addAnswer('De nada! 👌 Espero haberte ayudado')
 
-
+const flujoBotones = addKeyword(["botones", "boton"]).addAnswer('Mira estas opciones: ', {
+    buttons: [
+        {
+          body: 'imagen'  
+        }
+    ]
+   
+})
 
 const main = async () => {
     const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([flujoPrincipal, flujoSecundario])
+    const adapterFlow = createFlow([flujoPrincipal, flujoSecundario, flujoBotones])
     const adapterProvider = createProvider(BaileysProvider)
 
     createBot({
