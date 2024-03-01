@@ -5,7 +5,7 @@ const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
 //flujo fin
-const flujoFin = addKeyword("Terminar").addAnswer("¡Hasta luego! Gracias por usar Eribot. 🤖")
+const flujoFin = addKeyword("terminar").addAnswer("¡Hasta luego! Gracias por usar Eribot. 🤖")
 
 //flujo problemaws internet
 const flujoInternet = addKeyword("2").addAnswer("PROBANDO... PROBANDO *FUNCION AUN NO DISPONIBLE 🎠*") 
@@ -14,14 +14,15 @@ const flujoInternet = addKeyword("2").addAnswer("PROBANDO... PROBANDO *FUNCION A
 const flujoComputador = addKeyword("3").addAnswer("PROBANDO... PROBANDO *FUNCION AUN NO DISPONIBLE 🎠*")
 
 //flujo 
-const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! Aquí están los pasos para recuperar tu contraseña:")
-.addAnswer(["1. Ingresa a este link.",
-            "2. Ve a la página de inicio de sesión.",
-            "3. Haz clic en '¿Olvidaste tu contraseña?'",
-            "4. Ingresa tu dirección de correo electrónico y haz clic en 'Enviar'.",
-            "5. Revisa tu correo electrónico para el enlace de restablecimiento de contraseña.",
-            "6. Haz clic en el enlace y establece una nueva contraseña.",
-            "Puedes escribir *Terminar* para finalizar la conversación"],
+const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! Aquí están los pasos para recuperar tu contraseña:", {
+    media:'C:/Users/DYNABOOK/ChatBotPrevisora2/base-baileys-memory/images/pruebas.png',
+
+    })
+.addAnswer(["1. Ve a nuestro sitio web ",
+            "2. haz clic en 'Olvidé mi contraseña' ",
+            "3. Sigue las instrucciones para restablecer tu contraseña",
+            "¡Listo! podras recuperar tu contraseña exitosamente.",
+            "Puedes escribir *Terminar* para finalizar la conversación 🫡" ],
              null, 
              null, 
              [flujoFin])
@@ -56,9 +57,8 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
 )    
 
 
-
 // Flujo para las opciones del menú
-const flujoMenu = addKeyword('Menu').addAnswer('📋 Soy Eribot y puedo ayudarte con lo siguiente:')
+const flujoMenu = addKeyword(['menu']).addAnswer('📋 Soy Eribot y puedo ayudarte con lo siguiente:')
     .addAnswer(
         [
             '1. 🎉 Problemas de Contraseñas',
@@ -69,27 +69,21 @@ const flujoMenu = addKeyword('Menu').addAnswer('📋 Soy Eribot y puedo ayudarte
         ],
         { capture: true },
         (ctx, { fallBack }) => {
-            if (ctx.body.includes("Terminar")) {
+            const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas
+            if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== 'terminar') {
                 console.log("Mensaje entrante: ", ctx.body);
-                return fallBack("¡Hasta luego! Gracias por usar Eribot.");
-            } else {
-                const optionSelected = ctx.body.trim(); // Eliminar espacios en blanco al principio y al final
-                if (["1", "2", "3"].includes(optionSelected)) {
-                    console.log("Mensaje entrante: ", ctx.body);
-                    return;
-                } else {
-                    console.log("Mensaje entrante: ", ctx.body);
-                    return fallBack("Por favor, escribe *1, 2 o 3* para ver las opciones disponibles o *Terminar* para finalizar la conversación.");
-                }
-            }
+                return fallBack();
+            } 
         },
-        [flujoContrasena, flujoInternet, flujoComputador]
+        [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
     );
 
 
 
+
+
 // Flujo principal
-const flujoPrincipal = addKeyword(['Hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
+const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
     .addAnswer('👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?')
     .addAnswer(
         [
@@ -98,17 +92,14 @@ const flujoPrincipal = addKeyword(['Hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
         ],
         { capture: true },
         (ctx, { fallBack }) => {
-            if (!ctx.body.includes(["Menu", "menu"])) {
+            const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas
+            if (textoEntrante !== 'menu' && textoEntrante !== 'terminar') {
                 console.log("Mensaje entrante: ", ctx.body);
                 return fallBack();
-            } else {
-                console.log("Mensaje entrante: ", ctx.body);
-                return null;
-            }
+            } 
         },
         [flujoMenu, flujoFin]
     );
-
 
 
 
