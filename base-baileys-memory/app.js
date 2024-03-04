@@ -19,7 +19,7 @@ const generateQR = async () => {
 const POSTGRES_DB_HOST = 'localhost'
 const POSTGRES_DB_USER = 'postgres'
 const POSTGRES_DB_PASSWORD = '12345'
-const POSTGRES_DB_NAME = 'chatBot'
+const POSTGRES_DB_NAME = 'chatbot'
 const POSTGRES_DB_PORT = '5432'
 
 //flujo fin
