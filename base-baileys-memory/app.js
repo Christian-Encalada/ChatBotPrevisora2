@@ -3,14 +3,6 @@ const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
-const qrcode = require('qrcode-terminal');
-
-
-// Lógica para generar el código QR
-const generateQR = async () => {
-    const url = 'https://link.codigoencasa.com/DISCORD'; // URL que quieres codificar en el QR
-    qrcode.generate(url, { small: true }); // Genera el código QR y lo muestra en la terminal
-}
 
 /**
  * Declaramos las conexiones de PostgreSQL
@@ -19,7 +11,7 @@ const generateQR = async () => {
 const POSTGRES_DB_HOST = 'localhost'
 const POSTGRES_DB_USER = 'postgres'
 const POSTGRES_DB_PASSWORD = '12345'
-const POSTGRES_DB_NAME = 'chatbot'
+const POSTGRES_DB_NAME = 'chatBot'
 const POSTGRES_DB_PORT = '5432'
 
 //flujo fin
@@ -153,10 +145,7 @@ const main = async () => {
     })
 
     QRPortalWeb()
-    generateQR();
-
 }
 
 main()
-
 
