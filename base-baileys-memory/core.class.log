@@ -1,0 +1,325 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '593995078621@s.whatsapp.net',
+    fromMe: false,
+    id: '8316071388C55BDDC84C459A0A1EB6F9',
+    participant: undefined
+  },
+  messageTimestamp: 1709662914,
+  pushName: 'Charli 🍓',
+  broadcast: false,
+  message: Message {
+    conversation: 'Bfjfjd',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Bfjfjd',
+  from: '593995078621'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB02BE52E49B33709E146',
+    participant: undefined
+  },
+  messageTimestamp: 1709663190,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'oli',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'oli',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_0ed47694-bb51-455a-8ac0-b29e0ad75331',
+  keyword: 'key_a75e0491-b766-4d13-b565-d975e98939a7',
+  answer: '👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '5aec9e416b79140d9b697a7ade761dd8'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_eec8813f-ed47-4ab5-a3e0-bcaa3d5b7235',
+  keyword: 'ans_0ed47694-bb51-455a-8ac0-b29e0ad75331',
+  answer: 'Escribeme *Menu* para ver más opciones\n' +
+    'También puedes escribir *Terminar* para finalizar la conversación',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [ [Object], [Object], [Object], [Object], [Object] ],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '9a31e668d9ee1c1647a53dc9d65ddacb'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0CF21F821EF3395FD4F',
+    participant: undefined
+  },
+  messageTimestamp: 1709663193,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'menu',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'menu',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_92582ecc-503d-4a1c-97ae-e987c29441b5',
+  answer: '📋 Soy Eribot y puedo ayudarte con lo siguiente:',
+  keyword: 'key_8dd80d94-20d6-4093-a97b-7e33088ee121',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '6493e7bc8b9d7021ab83baee1069876b'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_b7fa7842-6fdd-46bd-a80a-a56c4002c849',
+  answer: '1. 🎉 Problemas de Contraseñas\n' +
+    '2. 🎁 Problemas con el Internet\n' +
+    '3. 🚀 Problemas con el Computador\n' +
+    'Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆\n' +
+    'También puedes escribir *Terminar* para finalizar la conversación',
+  keyword: 'ans_92582ecc-503d-4a1c-97ae-e987c29441b5',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    buttons: [],
+    capture: true,
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'ea06c54331f7f3306cb7fdcffd0b84ae'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0A82B9CFC51B2B7BBF6',
+    participant: undefined
+  },
+  messageTimestamp: 1709663195,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '1',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_7c7061fd-cf32-433f-b8bd-b6b71cf1dffa',
+  answer: '¿Cual de estos es tu problema? 🧐 ',
+  keyword: 'key_9b21a086-0206-4648-8b4c-dbd078821663',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '8c3fd41d00dbd868aba2986c9ec36ecc'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_68162fe5-017d-4c41-a186-26f9d6823c17',
+  answer: '1. Olvide mi contraseña\n' +
+    '2. Cambiar contraseña\n' +
+    'Escribe el numero *1* o *2* segun tu necesidad en el chat 👆\n' +
+    'También puedes escribir *Terminar* para finalizar la conversación',
+  keyword: 'ans_7c7061fd-cf32-433f-b8bd-b6b71cf1dffa',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'f6a477b9ab0c1877e073b488e276147b'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0A0346A0D0E83935790',
+    participant: undefined
+  },
+  messageTimestamp: 1709663197,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '1',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_dffd97df-1425-453a-81ad-8d1933131695',
+  answer: '¡No te preocupes! Aquí están los pasos para recuperar tu contraseña:',
+  keyword: 'key_6d32d17b-6871-4057-88c1-b4edac4e341a',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: 'C:/Users/DYNABOOK/ChatBotPrevisora2/base-baileys-memory/images/pruebas.png',
+    nested: [],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'f05e6133fca006669fd36bd471b12654'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_50ff1081-61c4-4806-a4ac-809756ac01b1',
+  answer: '👇',
+  keyword: 'ans_dffd97df-1425-453a-81ad-8d1933131695',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: 'C:/Users/DYNABOOK/ChatBotPrevisora2/base-baileys-memory/images/prueba 2.png',
+    nested: [],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '91a7c0dc7417e6a3da6c743090f103b2'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_936ccc64-44b1-424b-b4e9-c4e90b5c777b',
+  answer: '1. Ve a nuestro sitio web \n' +
+    "2. haz clic en 'Olvidé mi contraseña' \n" +
+    '3. Sigue las instrucciones para restablecer tu contraseña\n' +
+    '¡Listo! podras recuperar tu contraseña exitosamente.\n' +
+    'Puedes escribir *Terminar* para finalizar la conversación 🫡',
+  keyword: 'ans_50ff1081-61c4-4806-a4ac-809756ac01b1',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [ [Object], [Object] ],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '30120fde6af8e97c4964f2b240e4044c'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: 'A0E9187C0478D823D8',
+    participant: undefined
+  },
+  messageTimestamp: 1709663730,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'what pocho ???',
+      contextInfo: [ContextInfo]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'what pocho ???',
+  from: '593959142592'
+}
