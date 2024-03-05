@@ -17,11 +17,32 @@ const POSTGRES_DB_PORT = '5432'
 //flujo fin
 const flujoFin = addKeyword("terminar").addAnswer("¡Hasta luego! Gracias por usar Eribot. 🤖")
 
-//flujo problemaws internet
-const flujoInternet = addKeyword("2").addAnswer("PROBANDO... PROBANDO *FUNCION AUN NO DISPONIBLE 🎠*") 
-
 //flujo problemas computador
 const flujoComputador = addKeyword("3").addAnswer("PROBANDO... PROBANDO *FUNCION AUN NO DISPONIBLE 🎠*")
+
+
+const flujo1Pagina = addKeyword("1").addAnswer("Posible Solucion: ")
+.addAnswer(["1. Usa los datos moviles tuyos o de algun compañero",
+            "2. Ingresa a la pagina desde tu celular",
+            "3. Si la pagina te carga"
+
+])
+
+
+//flujo problemaws internet
+const flujoInternet = addKeyword("2").addAnswer("¿Cual es tu problema 🧐?") 
+.addAnswer(["1. NO tienes acceso a una pagina especifica: ",
+            "2. NO tienes acceso a ninguna pagina: ",
+            "También puedes escribir *Terminar* para finalizar la conversación"
+            ],
+       { capture: true },
+            (ctx, { fallBack }) => {
+                const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas
+                if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== 'terminar') {
+                    console.log("Mensaje entrante: ", ctx.body);
+                    return fallBack();
+                } 
+        },[flujo1Pagina, flujoFin])
 
 //flujo olvide contraseña
 const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! Aquí están los pasos para recuperar tu contraseña:", {
@@ -40,8 +61,6 @@ const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! Aqu�
              [flujoFin])
 
 
-
-
 const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos para cambiar tu contraseña:")
 .addAnswer(["1. Ve a la página de configuración de tu cuenta.",
             "2. Haz clic en 'Cambiar contraseña'.",
@@ -52,8 +71,6 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
             "Puedes escribir *Terminar* para finalizar la conversación"], 
             null, 
             null, [flujoFin])
-
-
 
 
 //FLujo de problemas recurrentes con la contraseña
@@ -91,9 +108,6 @@ const flujoMenu = addKeyword(['menu']).addAnswer('📋 Soy Eribot y puedo ayudar
     );
 
 
-
-
-
 // Flujo principal
 const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
     .addAnswer('👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?')
@@ -112,7 +126,6 @@ const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
         },
         [flujoMenu, flujoFin]
     );
-
 
 
  //flujo Secundario
@@ -148,4 +161,3 @@ const main = async () => {
 }
 
 main()
-
