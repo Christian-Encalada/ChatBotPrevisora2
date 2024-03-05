@@ -1,31 +1,11 @@
 [handleMsg]:  {
   key: {
-    remoteJid: '593995078621@s.whatsapp.net',
-    fromMe: false,
-    id: '8316071388C55BDDC84C459A0A1EB6F9',
-    participant: undefined
-  },
-  messageTimestamp: 1709662914,
-  pushName: 'Charli 🍓',
-  broadcast: false,
-  message: Message {
-    conversation: 'Bfjfjd',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Bfjfjd',
-  from: '593995078621'
-}
-[handleMsg]:  {
-  key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB02BE52E49B33709E146',
+    id: '3EB070860B572BBB8764EB',
     participant: undefined
   },
-  messageTimestamp: 1709663190,
+  messageTimestamp: 1709664831,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -43,8 +23,8 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_0ed47694-bb51-455a-8ac0-b29e0ad75331',
-  keyword: 'key_a75e0491-b766-4d13-b565-d975e98939a7',
+  ref: 'ans_00da3104-bf23-48d6-8506-df0fe11803d4',
+  keyword: 'key_b3e40295-ca6d-446e-bcd6-d34dfe3433e0',
   answer: '👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?',
   options: {
     media: null,
@@ -58,11 +38,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '5aec9e416b79140d9b697a7ade761dd8'
+  refSerialize: '763fa8572f2ae8cbd3e109f06257dac4'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_eec8813f-ed47-4ab5-a3e0-bcaa3d5b7235',
-  keyword: 'ans_0ed47694-bb51-455a-8ac0-b29e0ad75331',
+  ref: 'ans_01ec33de-becd-4afb-9793-01a180ce49fb',
+  keyword: 'ans_00da3104-bf23-48d6-8506-df0fe11803d4',
   answer: 'Escribeme *Menu* para ver más opciones\n' +
     'También puedes escribir *Terminar* para finalizar la conversación',
   options: {
@@ -77,16 +57,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '9a31e668d9ee1c1647a53dc9d65ddacb'
+  refSerialize: 'cf3f432c4fae44ca24bab93f36fd80f3'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0CF21F821EF3395FD4F',
+    id: '3EB0C6B2D2E2F8C7C2206A',
     participant: undefined
   },
-  messageTimestamp: 1709663193,
+  messageTimestamp: 1709664833,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -104,9 +84,9 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_92582ecc-503d-4a1c-97ae-e987c29441b5',
+  ref: 'ans_258ab6a4-2d75-44ca-9b2b-6b4f9eedb645',
   answer: '📋 Soy Eribot y puedo ayudarte con lo siguiente:',
-  keyword: 'key_8dd80d94-20d6-4093-a97b-7e33088ee121',
+  keyword: 'key_171eeaf4-f01b-4e5a-892e-eef41e4b7d03',
   options: {
     ref: null,
     idle: null,
@@ -119,16 +99,16 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '6493e7bc8b9d7021ab83baee1069876b'
+  refSerialize: 'ebf823dbf574d2f427958af9f3dac94a'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_b7fa7842-6fdd-46bd-a80a-a56c4002c849',
+  ref: 'ans_08407683-2478-4fac-8d9f-51c9cd44542c',
   answer: '1. 🎉 Problemas de Contraseñas\n' +
     '2. 🎁 Problemas con el Internet\n' +
     '3. 🚀 Problemas con el Computador\n' +
     'Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆\n' +
     'También puedes escribir *Terminar* para finalizar la conversación',
-  keyword: 'ans_92582ecc-503d-4a1c-97ae-e987c29441b5',
+  keyword: 'ans_258ab6a4-2d75-44ca-9b2b-6b4f9eedb645',
   options: {
     ref: null,
     idle: null,
@@ -147,21 +127,21 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'ea06c54331f7f3306cb7fdcffd0b84ae'
+  refSerialize: '3dc4b106d8ce4d43073846c40da73494'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0A82B9CFC51B2B7BBF6',
+    id: '3EB0E5DD97ED90DAC2B73F',
     participant: undefined
   },
-  messageTimestamp: 1709663195,
+  messageTimestamp: 1709664835,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
     extendedTextMessage: ExtendedTextMessage {
-      text: '1',
+      text: '|1',
       contextInfo: [ContextInfo],
       inviteLinkGroupTypeV2: 0
     },
@@ -170,13 +150,13 @@
       deviceListMetadataVersion: 2
     }
   },
-  body: '1',
+  body: '|1',
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_7c7061fd-cf32-433f-b8bd-b6b71cf1dffa',
+  ref: 'ans_4fa0efc9-abde-47aa-a6d2-6fa0766c4531',
   answer: '¿Cual de estos es tu problema? 🧐 ',
-  keyword: 'key_9b21a086-0206-4648-8b4c-dbd078821663',
+  keyword: 'key_020c5e9e-70be-47e0-b55f-bf51cb7448c5',
   options: {
     ref: null,
     idle: null,
@@ -189,15 +169,15 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '8c3fd41d00dbd868aba2986c9ec36ecc'
+  refSerialize: '72e4a5f9bd7b0f8484392bf925b7f3a5'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_68162fe5-017d-4c41-a186-26f9d6823c17',
+  ref: 'ans_e0befaa1-c90b-48e9-8f17-cf88d07e6790',
   answer: '1. Olvide mi contraseña\n' +
     '2. Cambiar contraseña\n' +
     'Escribe el numero *1* o *2* segun tu necesidad en el chat 👆\n' +
     'También puedes escribir *Terminar* para finalizar la conversación',
-  keyword: 'ans_7c7061fd-cf32-433f-b8bd-b6b71cf1dffa',
+  keyword: 'ans_4fa0efc9-abde-47aa-a6d2-6fa0766c4531',
   options: {
     ref: null,
     idle: null,
@@ -216,16 +196,16 @@
     keyword: {},
     callback: false
   },
-  refSerialize: 'f6a477b9ab0c1877e073b488e276147b'
+  refSerialize: '79a6fb7a055b1f2c841fb9a8b6b75c81'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0A0346A0D0E83935790',
+    id: '3EB0FAD2F67407A28D1428',
     participant: undefined
   },
-  messageTimestamp: 1709663197,
+  messageTimestamp: 1709664837,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -243,9 +223,9 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_dffd97df-1425-453a-81ad-8d1933131695',
+  ref: 'ans_2385e6f6-9a7a-4e5b-9aab-fa943e17b567',
   answer: '¡No te preocupes! Aquí están los pasos para recuperar tu contraseña:',
-  keyword: 'key_6d32d17b-6871-4057-88c1-b4edac4e341a',
+  keyword: 'key_673831ff-3e5d-40b5-a05e-49df54590d14',
   options: {
     ref: null,
     idle: null,
@@ -258,12 +238,12 @@
     keyword: {},
     callback: false
   },
-  refSerialize: 'f05e6133fca006669fd36bd471b12654'
+  refSerialize: '4b6e1aee7229fb41b261214825282345'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_50ff1081-61c4-4806-a4ac-809756ac01b1',
+  ref: 'ans_0f04d454-e68a-463b-a4b5-9d35ac92afc4',
   answer: '👇',
-  keyword: 'ans_dffd97df-1425-453a-81ad-8d1933131695',
+  keyword: 'ans_2385e6f6-9a7a-4e5b-9aab-fa943e17b567',
   options: {
     ref: null,
     idle: null,
@@ -276,16 +256,16 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '91a7c0dc7417e6a3da6c743090f103b2'
+  refSerialize: '119bd9f2e9d726deb770497042b1d026'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_936ccc64-44b1-424b-b4e9-c4e90b5c777b',
+  ref: 'ans_ddf943cc-1165-478b-9999-8dfd104bdd2f',
   answer: '1. Ve a nuestro sitio web \n' +
     "2. haz clic en 'Olvidé mi contraseña' \n" +
     '3. Sigue las instrucciones para restablecer tu contraseña\n' +
     '¡Listo! podras recuperar tu contraseña exitosamente.\n' +
     'Puedes escribir *Terminar* para finalizar la conversación 🫡',
-  keyword: 'ans_50ff1081-61c4-4806-a4ac-809756ac01b1',
+  keyword: 'ans_0f04d454-e68a-463b-a4b5-9d35ac92afc4',
   options: {
     ref: null,
     idle: null,
@@ -298,28 +278,5 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '30120fde6af8e97c4964f2b240e4044c'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '593959142592@s.whatsapp.net',
-    fromMe: false,
-    id: 'A0E9187C0478D823D8',
-    participant: undefined
-  },
-  messageTimestamp: 1709663730,
-  pushName: 'AB 💤',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'what pocho ???',
-      contextInfo: [ContextInfo]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'what pocho ???',
-  from: '593959142592'
+  refSerialize: 'f6a59539b2ae72f9467ba05810a0a611'
 }
