@@ -11,7 +11,7 @@ const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
 const POSTGRES_DB_HOST = 'localhost'
 const POSTGRES_DB_USER = 'postgres'
 const POSTGRES_DB_PASSWORD = '12345'
-const POSTGRES_DB_NAME = 'chatBot'
+const POSTGRES_DB_NAME = 'chatbot'
 const POSTGRES_DB_PORT = '5432'
 
 //flujo fin
@@ -26,7 +26,7 @@ const flujoComputador = addKeyword("3").addAnswer("PROBANDO... PROBANDO *FUNCION
 //flujo olvide contraseña
 const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! Aquí están los pasos para recuperar tu contraseña:", {
     media:'C:/Users/DYNABOOK/ChatBotPrevisora2/base-baileys-memory/images/pruebas.png'
-    })
+    }) 
 .addAnswer("👇",{
     media: 'C:/Users/DYNABOOK/ChatBotPrevisora2/base-baileys-memory/images/prueba 2.png'
 })
