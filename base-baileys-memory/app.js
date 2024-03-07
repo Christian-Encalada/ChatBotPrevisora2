@@ -21,7 +21,7 @@ const flujoTicket = addKeyword("ticket").addAnswer("Buenas pronto un asesor pers
 .addAnswer("Funcion aun no disponible... 🤖")
 
 const flujo6Computador = addKeyword("6").addAnswer("Posible solucion de: Olvidé mi contraseña de inicio de sesión. 👨‍💻")
-.addAnswer("Si olvidaste la contraseña de tu computadora, lastimosamente la unica solucion es pedir un *Ticket* para que profesional pueda crearte un nuevo usuario. 👤")s
+.addAnswer("Si olvidaste la contraseña de tu computadora, lastimosamente la unica solucion es pedir un *Ticket* para que profesional pueda crearte un nuevo usuario. 👤")
 .addAnswer("Escribe *Ticket* para notificar a un asesor profesional de tu problema ✅",
 null,
 null,
