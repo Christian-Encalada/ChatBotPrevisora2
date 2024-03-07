@@ -21,7 +21,7 @@ const flujoTicket = addKeyword("ticket").addAnswer("Buenas pronto un asesor pers
 .addAnswer("Funcion aun no disponible... 🤖")
 
 const flujo6Computador = addKeyword("6").addAnswer("Posible solucion de: Olvidé mi contraseña de inicio de sesión. 👨‍💻")
-.addAnswer("Si olvidaste la contraseña de tu computadora, lastimosamente la unica solucion es pedir un *Ticket* para que profesional pueda crearte un nuevo usuario. 👤")s
+.addAnswer("Si olvidaste la contraseña de tu computadora, lastimosamente la unica solucion es pedir un *Ticket* para que profesional pueda crearte un nuevo usuario. 👤")
 .addAnswer("Escribe *Ticket* para notificar a un asesor profesional de tu problema ✅",
 null,
 null,
@@ -175,11 +175,7 @@ const flujoInternet = addKeyword("2").addAnswer("¿Cual es tu problema 🧐?")
         },[flujo1Pagina,flujoAllPaginas ,flujoFin])
 
 //flujo olvide contraseña
-<<<<<<< HEAD
-const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! Aquí están los pasos para recuperar tu contraseña:", {
-=======
 const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! 🫡 Aquí están los pasos para recuperar tu contraseña:", {
->>>>>>> testTipo2
     media:'https://i.imgur.com/LQI8cPY.png'
     })
 .addAnswer("👇",{
