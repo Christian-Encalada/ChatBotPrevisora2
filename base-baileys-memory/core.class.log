@@ -1,5 +1,6 @@
 [handleMsg]:  {
   key: {
+<<<<<<< HEAD
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
     id: '3EB03A526E0C4B720DAF53',
@@ -30,29 +31,39 @@
     participant: undefined
   },
   messageTimestamp: 1709666487,
+=======
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0F1FB7051D2D33E98B7',
+    participant: undefined
+  },
+  messageTimestamp: 1709845193,
+>>>>>>> testTipo2
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'oli',
-      contextInfo: [ContextInfo],
-      inviteLinkGroupTypeV2: 0
-    },
+    conversation: 'boton',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'oli',
+  body: 'boton',
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
+<<<<<<< HEAD
   ref: 'ans_0e3845ba-1c29-46aa-9ef8-6a24be275e35',
   keyword: 'key_b673839d-cdfd-47b1-a68f-4afa32830103',
   answer: '👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?',
+=======
+  ref: 'ans_c1737a96-f33a-435c-b217-54f851df65c9',
+  keyword: 'key_9a281810-9a9f-4293-a06c-537b56271aa7',
+  answer: 'Mira estas opciones: ',
+>>>>>>> testTipo2
   options: {
     media: null,
-    buttons: [],
+    buttons: [ [Object] ],
     capture: false,
     child: null,
     delay: 0,
@@ -62,6 +73,7 @@
     keyword: {},
     callback: false
   },
+<<<<<<< HEAD
   refSerialize: '6827ea6d01bed9907e34ce8ca0910919'
 }
 [QUEUE_SE_ENVIO]:  {
@@ -303,4 +315,7 @@
     callback: false
   },
   refSerialize: '42ecb656d545276168eb889a197ddc86'
+=======
+  refSerialize: 'e3762e9f1f8214e26a7e917024969fbc'
+>>>>>>> testTipo2
 }
