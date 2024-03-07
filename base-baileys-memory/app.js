@@ -58,7 +58,7 @@ const flujoWifi = addKeyword("wifi").addAnswer("Si tienes wifi intenta esto: ")
 
 const flujoAllPaginas = addKeyword("2").addAnswer("Para poder ayudarte con tu problema de mejor manera primero necesito que respondas una pregunta:")
 .addAnswer("Tienes internet por ¿*Wifi* o *Cableado*?")
-.addAnswer("Escribe en el chat *Wifi* o *Cableado* para respoder.", {capture:true},(ctx)=>{
+.addAnswer("Escribe en el chat *Wifi* o *Cableado* para respoder.", {capture:true},(ctx, {fallBack})=>{
     const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
     if (textoEntrante !== 'wifi' && textoEntrante !== 'cableado' && textoEntrante !== 'terminar') {
         console.log("Mensaje entrante: ", ctx.body);
