@@ -70,7 +70,9 @@ const flujo1Computador = addKeyword("1").addAnswer("Posible solucion de: La comp
 .addAnswer("1. Asegúrate de que esté conectada a una fuente de energía.")
 .addAnswer("2. Verifica que el cable de alimentación esté enchufado correctamente tanto en la computadora como en el enchufe.")
 .addAnswer("3. Verifica si hay una luz indicadora en el dispositivo que muestre que está recibiendo energía.")
-.addAnswer("4. Intenta presionar el botón de encendido durante al menos 10 segundos para reiniciarla.")
+.addAnswer("4. Intenta presionar el botón de encendido durante al menos 10 segundos para reiniciarla.", {
+    media: 'https://i.imgur.com/Xi8FfQA.png'
+})
 .addAnswer("5. Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅",
 null,
 null,
