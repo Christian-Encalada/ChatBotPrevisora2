@@ -1,18 +1,28 @@
 const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require('@bot-whatsapp/bot')
-
-const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
 
-/**
- * Declaramos las conexiones de PostgreSQL
- */
+// Función para consultar la base de datos en busca de la cédula del usuario
+async function consultarBaseDeDatos(cedula, adapterDB) {
+    try {
+        // Realiza la consulta a la base de datos
+        const query = `SELECT * FROM tabla_usuarios WHERE cedula = $1`;
+        const result = await adapterDB.query(query, [cedula]);
 
-const POSTGRES_DB_HOST = 'localhost'
-const POSTGRES_DB_USER = 'postgres'
-const POSTGRES_DB_PASSWORD = '12345'
-const POSTGRES_DB_NAME = 'chatBot'
-const POSTGRES_DB_PORT = '5432'
+        // Verifica si se encontró algún usuario con la cédula proporcionada
+        if (result.rows.length > 0) {
+            // Devuelve el primer usuario encontrado (asumiendo que no hay duplicados en la base de datos)
+            return result.rows[0];
+        } else {
+            // Si no se encontró ningún usuario, devuelve null
+            return null;
+        }
+    } catch (error) {
+        console.error('Error al consultar la base de datos:', error);
+        throw error; // Reenvía el error para que sea manejado en otro lugar si es necesario
+    }
+}
+
 
 //flujo fin
 const flujoFin = addKeyword("terminar").addAnswer("¡Hasta luego! Gracias por usar Eribot. 🤖")
@@ -245,24 +255,30 @@ const flujoMenu = addKeyword(['menu']).addAnswer('📋 Soy Eribot y puedo ayudar
     );
 
 
-// Flujo principal
-const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
-    .addAnswer('👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?')
+    const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
+    .addAnswer('👋 ¡Hola soy Eribot! ¿Cuál es tu cédula?')
     .addAnswer(
         [
             'Escribeme *Menu* para ver más opciones',
             "También puedes escribir *Terminar* para finalizar la conversación 🤖"
         ],
         { capture: true },
-        (ctx, { fallBack }) => {
-            const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas
-            if (textoEntrante !== 'menu' && textoEntrante !== 'terminar') {
-                console.log("Mensaje entrante: ", ctx.body);
+        async (ctx, { fallBack }) => {
+            const cedula = ctx.body.trim(); // Obtener la cédula ingresada por el usuario
+            // Verificar si la cédula está en la base de datos
+            const user = await consultarBaseDeDatos(cedula);
+            if (!user) {
+                ctx.sendText('Lo siento, no pude encontrar tu cédula en nuestra base de datos. Por favor, verifica e inténtalo nuevamente.');
                 return fallBack();
-            } 
+            } else {
+                // Continuar con el flujo principal
+                return null;
+            }
         },
         [flujoMenu, flujoFin]
     );
+
+
 
 
  //flujo Secundario
@@ -294,6 +310,8 @@ const main = async () => {
         database: adapterDB,
     })
 
+  
+    
     QRPortalWeb()
 }
 
