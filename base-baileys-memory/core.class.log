@@ -1,0 +1,78 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0EF923C9E7E5DD6566C',
+    participant: undefined
+  },
+  messageTimestamp: 1710362027,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: 'cedula',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'cedula',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_7b8ab2c2-38ae-42b0-9505-9217a260f75c',
+  keyword: 'key_1000e8fd-79ee-480c-b4cb-23d7d73d70d3',
+  answer: 'Escribe tu número de cédula para continuar:',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [ [Object], [Object], [Object], [Object], [Object] ],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'c7ff4e76a47decaeaee12bd44173cd93'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB07C4F363BE68AEEB2DD',
+    participant: undefined
+  },
+  messageTimestamp: 1710362033,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: '1311338097',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1311338097',
+  from: '593959142592'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0BD9AA1E5FE53F0A823',
+    participant: undefined
+  },
+  messageTimestamp: 1710362044,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: '1350274484',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1350274484',
+  from: '593959142592'
+}

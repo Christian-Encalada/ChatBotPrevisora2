@@ -1,28 +1,44 @@
 const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require('@bot-whatsapp/bot')
+const { Pool } = require('pg');
+const { Client } = require('pg')
+
+const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
 
-// Función para consultar la base de datos en busca de la cédula del usuario
-async function consultarBaseDeDatos(cedula, adapterDB) {
-    try {
-        // Realiza la consulta a la base de datos
-        const query = `SELECT * FROM tabla_usuarios WHERE cedula = $1`;
-        const result = await adapterDB.query(query, [cedula]);
+/**
+ * Declaramos las conexiones de PostgreSQL
+ */
 
-        // Verifica si se encontró algún usuario con la cédula proporcionada
-        if (result.rows.length > 0) {
-            // Devuelve el primer usuario encontrado (asumiendo que no hay duplicados en la base de datos)
-            return result.rows[0];
+const POSTGRES_DB_HOST = 'localhost'
+const POSTGRES_DB_USER = 'postgres'
+const POSTGRES_DB_PASSWORD = '12345'
+const POSTGRES_DB_NAME = 'chatBot'
+const POSTGRES_DB_PORT = '5432'
+
+
+
+
+// Función para validar la cédula en la base de datos
+async function validarCedula(cedula) {
+    const client = new Client({ user: POSTGRES_DB_USER, password:POSTGRES_DB_PASSWORD, database: POSTGRES_DB_NAME }) 
+    await client.connect()
+    
+    try {
+        // Ejecutar la consulta para verificar si la cédula existe en la base de datos
+        const resultado = await client.query('SELECT * FROM usuarios WHERE cedula = $1', [cedula]);
+        
+        // Si la consulta devuelve algún resultado, la cédula es válida
+        if (resultado && resultado.rows.length > 0) {
+            return true;
         } else {
-            // Si no se encontró ningún usuario, devuelve null
-            return null;
+            return false;
         }
     } catch (error) {
-        console.error('Error al consultar la base de datos:', error);
-        throw error; // Reenvía el error para que sea manejado en otro lugar si es necesario
+        console.error('Error al validar la cédula en la base de datos:', error);
+        return false;
     }
 }
-
 
 //flujo fin
 const flujoFin = addKeyword("terminar").addAnswer("¡Hasta luego! Gracias por usar Eribot. 🤖")
@@ -255,28 +271,43 @@ const flujoMenu = addKeyword(['menu']).addAnswer('📋 Soy Eribot y puedo ayudar
     );
 
 
-    const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
-    .addAnswer('👋 ¡Hola soy Eribot! ¿Cuál es tu cédula?')
+// Flujo principal
+const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
+    .addAnswer('👋 ¡Hola soy Eribot! ¿En qué puedo ayudarte hoy?')
     .addAnswer(
         [
             'Escribeme *Menu* para ver más opciones',
             "También puedes escribir *Terminar* para finalizar la conversación 🤖"
         ],
         { capture: true },
-        async (ctx, { fallBack }) => {
-            const cedula = ctx.body.trim(); // Obtener la cédula ingresada por el usuario
-            // Verificar si la cédula está en la base de datos
-            const user = await consultarBaseDeDatos(cedula);
-            if (!user) {
-                ctx.sendText('Lo siento, no pude encontrar tu cédula en nuestra base de datos. Por favor, verifica e inténtalo nuevamente.');
+        (ctx, { fallBack }) => {
+            const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas
+            if (textoEntrante !== 'menu' && textoEntrante !== 'terminar') {
+                console.log("Mensaje entrante: ", ctx.body);
                 return fallBack();
-            } else {
-                // Continuar con el flujo principal
-                return null;
-            }
+            } 
         },
         [flujoMenu, flujoFin]
     );
+
+
+// En el flujo principal, después de obtener la cédula ingresada por el usuario
+const flujoCedula = addKeyword("cedula").addAnswer('Escribe tu número de cédula para continuar:', { capture: true }, async (ctx, { fallBack }) => {
+    const cedula = ctx.body.trim(); // Obtener la cédula ingresada
+    // Validar la cédula en la base de datos
+    const cedulaValida = await validarCedula(cedula);
+    console.log("cedula validadda");
+    console.log(cedulaValida);
+    
+    // Si la cédula es válida, enviar el mensaje para continuar
+    if (cedulaValida) {
+        addAnswer("Cédula verificada correctamente. Por favor escribe 'Hola' para continuar.")
+    } else {
+        // Si la cédula no es válida, enviar un mensaje de error y volver a pedir la cédula
+        addAnswer("La cédula ingresada no es válida. Por favor intenta nuevamente.");
+        return fallBack(); // Volver a este paso del flujo
+    }
+},[flujoFin, flujoPrincipal]);
 
 
 
@@ -294,6 +325,7 @@ const flujoBotones = addKeyword(["botones", "boton"]).addAnswer('Mira estas opci
 })
 
 const main = async () => {
+    console.log("antes de crear la conexion");
     const adapterDB = new PostgreSQLAdapter({
         host: POSTGRES_DB_HOST,
         user: POSTGRES_DB_USER,
@@ -301,7 +333,10 @@ const main = async () => {
         password: POSTGRES_DB_PASSWORD,
         port: POSTGRES_DB_PORT,
     })
-    const adapterFlow = createFlow([flujoPrincipal, flujoSecundario, flujoBotones])
+    
+    
+    console.log("despues de crear la conexion");
+    const adapterFlow = createFlow([flujoPrincipal, flujoSecundario, flujoBotones, flujoCedula])
     const adapterProvider = createProvider(BaileysProvider)
 
     createBot({
@@ -310,8 +345,6 @@ const main = async () => {
         database: adapterDB,
     })
 
-  
-    
     QRPortalWeb()
 }
 
