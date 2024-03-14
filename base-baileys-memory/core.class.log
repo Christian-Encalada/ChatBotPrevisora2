@@ -2,30 +2,10 @@
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB081C0120F9D89157953',
+    id: '3EB061A072084F9CD3375F',
     participant: undefined
   },
-  messageTimestamp: 1710443994,
-  pushName: 'AB 💤',
-  broadcast: false,
-  message: Message {
-    conversation: 'hola',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'hola',
-  from: '593959142592'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '593959142592@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB0F63186E91D71E0FA54',
-    participant: undefined
-  },
-  messageTimestamp: 1710444000,
+  messageTimestamp: 1710450079,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -39,8 +19,8 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_2077b66f-a083-4a45-a00f-1b15f82e9dfc',
-  keyword: 'key_106ef2c7-f0d7-44bb-a47e-a3f898e9017f',
+  ref: 'ans_58d7c4fa-8745-4b37-a5c0-cc6ff142b3b0',
+  keyword: 'key_2e3e9adb-0689-451b-b107-c07ca6a42b21',
   answer: '👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪',
   options: {
     media: null,
@@ -54,16 +34,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'ea1756f3209205aff108785567bf3966'
+  refSerialize: 'bf39ef9145c77d0ead27b54f37110e08'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0B102B17D4AE1E195AD',
+    id: '3EB09C23685A3E289BEADC',
     participant: undefined
   },
-  messageTimestamp: 1710444004,
+  messageTimestamp: 1710450084,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -77,8 +57,8 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_e3fcbd19-9e19-4a67-8083-23d63610a305',
-  keyword: 'ans_2077b66f-a083-4a45-a00f-1b15f82e9dfc',
+  ref: 'ans_d2020e6b-22a1-4245-8a56-15246a985448',
+  keyword: 'ans_58d7c4fa-8745-4b37-a5c0-cc6ff142b3b0',
   answer: 'INGRESO EXITOSO ✅',
   options: {
     media: null,
@@ -92,29 +72,29 @@
     keyword: {},
     callback: false
   },
-  refSerialize: 'c88905a30ccad361128f42d486fa8b91'
+  refSerialize: '41e38f088d79c5cbbf8fb37dfbc1b6a1'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_80930125-4912-47a4-850e-131d731d2182',
-  keyword: 'ans_e3fcbd19-9e19-4a67-8083-23d63610a305',
+  ref: 'ans_e67f3e67-1c19-42d2-ac17-1ae35104ef57',
+  keyword: 'ans_d2020e6b-22a1-4245-8a56-15246a985448',
   answer: 'Bienvenido 🫡 Soy Eribot  y puedo ayudarte con lo siguiente 📋:',
   options: {
     media: null,
     buttons: [],
     capture: false,
     child: null,
-    delay: 1500,
+    delay: 1000,
     idle: null,
     ref: null,
     nested: [],
     keyword: {},
     callback: false
   },
-  refSerialize: 'b41b45fbb0c7a6c79b10071480e29a77'
+  refSerialize: 'd17f175487835c0aac87dac00749a1a3'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_2bcdd9ce-bb27-42f0-b40c-f3e32d40c4be',
-  keyword: 'ans_80930125-4912-47a4-850e-131d731d2182',
+  ref: 'ans_6d0213b9-38d1-4953-a8c5-37ae86ac29d7',
+  keyword: 'ans_e67f3e67-1c19-42d2-ac17-1ae35104ef57',
   answer: '1. 🪪 Problemas de Contraseñas\n' +
     '2. 🛜 Problemas con el Internet\n' +
     '3. 💻 Problemas con el Computador',
@@ -130,11 +110,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '96f3bd06933e395c03f57d88953445a8'
+  refSerialize: 'a3f0aa5ca5b5e4439b80f3018f54c5d1'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_c5cc7b9c-3991-439e-8404-a9590e006d53',
-  keyword: 'ans_2bcdd9ce-bb27-42f0-b40c-f3e32d40c4be',
+  ref: 'ans_626a58a4-9e3d-4b96-9540-fa19bfc0df43',
+  keyword: 'ans_6d0213b9-38d1-4953-a8c5-37ae86ac29d7',
   answer: 'Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆\n' +
     'También puedes escribir *Terminar* para finalizar la conversación 🤖',
   options: {
@@ -152,10 +132,339 @@
       [Object], [Object],
       [Object], [Object],
       [Object], [Object],
-      [Object]
+      [Object], [Object]
     ],
     keyword: {},
     callback: true
   },
-  refSerialize: '89f0da007f74089c78a7974db4fa00c5'
+  refSerialize: '7b724ed7ecbe3fb6ebaae46e6fbcd4f7'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0EDC69B2593E3B362CD',
+    participant: undefined
+  },
+  messageTimestamp: 1710450088,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: 'terminare',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'terminare',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_fc2d4947-e659-40a3-99c4-10e03c1f8ee1',
+  answer: 'Gracias por usar Eribot. 🤖',
+  keyword: 'key_8bde62d5-6351-4452-8c28-d6082cc2626f',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'a2c62b922c7e3a9f8e405786ab72cc26'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_f073f343-dfe5-4ab0-8c7a-43602f031ac1',
+  answer: 'Por favor califica nuestro servicio del: *1 al 5* ⭐⭐⭐⭐⭐',
+  keyword: 'ans_fc2d4947-e659-40a3-99c4-10e03c1f8ee1',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [ [Object], [Object] ],
+    buttons: [],
+    capture: true,
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'c52558dad90f23ee13e6e0b71535077c'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB053F3C796BEA1679F78',
+    participant: undefined
+  },
+  messageTimestamp: 1710450122,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: '3',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '3',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_f8c23c95-f96b-4878-bd7d-99dde3020c85',
+  answer: 'Hasta la proxima. 👋',
+  keyword: 'key_0d1961bb-720b-428f-9b05-b71169367175',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '6118e5290a6374ef7759436e922851f6'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0B4C3E21166011A0CDF',
+    participant: undefined
+  },
+  messageTimestamp: 1710450124,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: 'hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_58d7c4fa-8745-4b37-a5c0-cc6ff142b3b0',
+  keyword: 'key_2e3e9adb-0689-451b-b107-c07ca6a42b21',
+  answer: '👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'bf39ef9145c77d0ead27b54f37110e08'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0FBCD2315967702E423',
+    participant: undefined
+  },
+  messageTimestamp: 1710450137,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: '1350274484',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1350274484',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_d2020e6b-22a1-4245-8a56-15246a985448',
+  keyword: 'ans_58d7c4fa-8745-4b37-a5c0-cc6ff142b3b0',
+  answer: 'INGRESO EXITOSO ✅',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '41e38f088d79c5cbbf8fb37dfbc1b6a1'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e67f3e67-1c19-42d2-ac17-1ae35104ef57',
+  keyword: 'ans_d2020e6b-22a1-4245-8a56-15246a985448',
+  answer: 'Bienvenido 🫡 Soy Eribot  y puedo ayudarte con lo siguiente 📋:',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 1000,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'd17f175487835c0aac87dac00749a1a3'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_6d0213b9-38d1-4953-a8c5-37ae86ac29d7',
+  keyword: 'ans_e67f3e67-1c19-42d2-ac17-1ae35104ef57',
+  answer: '1. 🪪 Problemas de Contraseñas\n' +
+    '2. 🛜 Problemas con el Internet\n' +
+    '3. 💻 Problemas con el Computador',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'a3f0aa5ca5b5e4439b80f3018f54c5d1'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_626a58a4-9e3d-4b96-9540-fa19bfc0df43',
+  keyword: 'ans_6d0213b9-38d1-4953-a8c5-37ae86ac29d7',
+  answer: 'Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆\n' +
+    'También puedes escribir *Terminar* para finalizar la conversación 🤖',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7b724ed7ecbe3fb6ebaae46e6fbcd4f7'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0533E83BC74024D0548',
+    participant: undefined
+  },
+  messageTimestamp: 1710450142,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: 'terminar',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'terminar',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_fc2d4947-e659-40a3-99c4-10e03c1f8ee1',
+  answer: 'Gracias por usar Eribot. 🤖',
+  keyword: 'key_8bde62d5-6351-4452-8c28-d6082cc2626f',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'a2c62b922c7e3a9f8e405786ab72cc26'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_f073f343-dfe5-4ab0-8c7a-43602f031ac1',
+  answer: 'Por favor califica nuestro servicio del: *1 al 5* ⭐⭐⭐⭐⭐',
+  keyword: 'ans_fc2d4947-e659-40a3-99c4-10e03c1f8ee1',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [ [Object], [Object] ],
+    buttons: [],
+    capture: true,
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'c52558dad90f23ee13e6e0b71535077c'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB07935F232BA5A56BC71',
+    participant: undefined
+  },
+  messageTimestamp: 1710450144,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: '5',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '5',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_f8c23c95-f96b-4878-bd7d-99dde3020c85',
+  answer: 'Hasta la proxima. 👋',
+  keyword: 'key_0d1961bb-720b-428f-9b05-b71169367175',
+  options: {
+    ref: null,
+    idle: null,
+    child: null,
+    delay: 0,
+    media: null,
+    nested: [],
+    buttons: [],
+    capture: false,
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '6118e5290a6374ef7759436e922851f6'
 }

@@ -33,8 +33,21 @@ async function validarCedula(cedula) {
     }
 }
 
-//flujo fin
-const flujoFin = addKeyword("terminar").addAnswer("¡Hasta luego! Gracias por usar Eribot. 🤖")
+//flujo prueba
+const flujoPrueba = addKeyword(["1", "2", "3", "4", "5"]).addAnswer("Hasta la proxima. 👋")
+
+
+const flujoFin = addKeyword("terminar").addAnswer("Gracias por usar Eribot. 🤖")
+.addAnswer('Por favor califica nuestro servicio del: *1 al 5* ⭐⭐⭐⭐⭐', { capture: true },
+(ctx, { fallBack }) => {
+    const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
+            if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== '4' && textoEntrante !== '5') {
+                console.log("Mensaje entrante: ", ctx.body);
+                return fallBack();
+            } 
+        },[flujoPrueba])
+
+
 
 //flujo ticket
 const flujoTicket = addKeyword("ticket").addAnswer("Buenas pronto un asesor personalizado se pondra en contacto contigo... 🫡")
@@ -103,6 +116,8 @@ null,
 null,
 [flujoFin, flujoTicket])
 
+
+
 //flujo problemas computador
 const flujoComputador = addKeyword("3").addAnswer("¿Cual es tu problema? ")
 .addAnswer (["1. La computadora/laptop no enciende 💻",
@@ -134,8 +149,7 @@ const flujoCableado = addKeyword("cableado").addAnswer("Si tienes cableado inten
 .addAnswer("1. Verifica si el cable LAN esta correctamente conectado al computador y al punto de red.",{
     media: 'https://i.imgur.com/9T2vVXo.png'
 })
-.addAnswer(["👆",
-            "2. Si no están conectados correctamente, sigue las imágenes que estás viendo para ver cómo deberían estar conectados tanto el pc como el punto de red: "],{
+.addAnswer(["2. Si no están conectados correctamente, sigue las imágenes que estás viendo para ver cómo deberían estar conectados tanto el pc como el punto de red: "],{
                 media: 'https://i.imgur.com/y9PCV19.png'
             })
     
@@ -296,7 +310,8 @@ const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
             } 
         }, 
         [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
-    );
+    )
+
 
 
 
