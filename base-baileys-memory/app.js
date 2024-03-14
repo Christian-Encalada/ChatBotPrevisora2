@@ -9,19 +9,47 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
 
-/**
- * Declaramos las conexiones de PostgreSQL
- */
 
-const POSTGRES_DB_HOST = 'localhost'
-const POSTGRES_DB_USER = 'postgres'
-const POSTGRES_DB_PASSWORD = '12345'
-const POSTGRES_DB_NAME = 'chatBot'
-const POSTGRES_DB_PORT = '5432'
+// Función para validar la cédula en la base de datos
+async function validarCedula(cedula) {
+    console.log("🆗 Conexion a BD Usuarios ");
+    const client = new Client({ user: POSTGRES_DB_USER2, password:POSTGRES_DB_PASSWORD2, database: POSTGRES_DB_NAME2 }) 
+    await client.connect()
+    
+    try {
+        // Ejecutar la consulta para verificar si la cédula existe en la base de datos
+        console.log("🆗 Usuario Valido ");
+        const resultado = await client.query('SELECT * FROM usuarios WHERE cedula = $1', [cedula]);
+        
+        // Si la consulta devuelve algún resultado, la cédula es válida
+        if (resultado && resultado.rows.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.error('Error al validar la cédula en la base de datos:', error);
+        return false;
+    }
+}
 
-//flujo fin
-const flujoFin = addKeyword("terminar").addAnswer("¡Hasta luego! Gracias por usar Eribot. 🤖")
+//flujo prueba
+const flujoPrueba = addKeyword(["1", "2", "3", "4", "5"]).addAnswer("Hasta la proxima. 👋")
 
+
+const flujoFin = addKeyword("terminar").addAnswer("Gracias por usar Eribot. 🤖")
+.addAnswer('Por favor califica nuestro servicio del: *1 al 5* ⭐⭐⭐⭐⭐', { capture: true },
+(ctx, { fallBack }) => {
+    const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
+            if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== '4' && textoEntrante !== '5') {
+                console.log("Mensaje entrante: ", ctx.body);
+                return fallBack();
+            } 
+        },[flujoPrueba])
+
+
+
+//flujo ticket
 const flujoTicket = addKeyword("ticket").addAnswer("Buenas pronto un asesor personalizado se pondra en contacto contigo... 🫡")
 .addAnswer("Funcion aun no disponible... 🤖")
 
