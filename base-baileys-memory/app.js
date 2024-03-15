@@ -62,7 +62,9 @@ null,
 [flujoFin, flujoTicket])
 
 //flujo 5 problema computador
-const flujo5Computador = addKeyword("5").addAnswer("Posible solucion de: Mi pantalla está en negro. ⬛ ")
+const flujo5Computador = addKeyword("5").addAnswer("Posible solucion de: Mi pantalla está en negro. ⬛ ", {
+    media: 'https://i.imgur.com/VhTPPu7.png'
+})
 .addAnswer("1. Si es una pc de escritorio asegúrate de que el cable de video (generalmente HDMI o VGA) esté conectado correctamente tanto a la pc como al monitor.")
 .addAnswer("2. Mantén presionado el botón de encendido durante varios segundos hasta que la laptop se apague por completo. Luego, enciéndela nuevamente para ver si se resuelve el problema..")
 .addAnswer("3. Si tienes una laptop con batería extraíble, apaga la laptop, retira la batería y mantenla fuera durante al menos un minuto. Vuelve a colocar la batería y enciende la laptop para ver si se soluciona el problema.")
@@ -76,7 +78,9 @@ null,
 //flujo 4 problema computador
 const flujo4Computador = addKeyword("4").addAnswer("Posible solucion de: No puedo imprimir. 🖨️")
 .addAnswer("1. Verifica que la impresora esté encendida y conectada correctamente a la computadora.")
-.addAnswer("2. Asegúrate de que haya papel y tinta o tóner suficiente en la impresora.")
+.addAnswer("2. Asegúrate de que haya papel y tinta o tóner suficiente en la impresora.", {
+    media: 'https://i.imgur.com/dberEF6.jpeg'
+})
 .addAnswer("3. Reinicia la impresora y la computadora.")
 .addAnswer("4. Intenta imprimir un documento diferente para descartar problemas con el archivo específico.")
 .addAnswer("Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅",
@@ -87,7 +91,9 @@ null,
 //flujo 3 problema computador
 const flujo3Computador = addKeyword("3").addAnswer("Posible solucion de: Pantalla congelada o sin respuesta. 🥶")
 .addAnswer(["1. Intenta presionar las teclas Ctrl + Alt + Supr con las que se te abriran unas opciones a las cuales puedes darle a BLOQUEAR, para volver a iniciar sesion y probablemente se descongelara la pantalla.",
-            "Tambien puedes darle a la opcion de 'Adminstrador de tareas' para cerrar algun programa que este casuando el congelamiento."])
+            "Tambien puedes darle a la opcion de 'Adminstrador de tareas' para cerrar algun programa que este casuando el congelamiento."], {
+                media: 'https://i.imgur.com/DXBoN2t.png'
+            })
 .addAnswer("2. Si eso no funciona, intenta reiniciar la computadora manteniendo presionado el botón de encendido durante unos segundos.")
 .addAnswer("Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅",
 null,
@@ -96,7 +102,9 @@ null,
 
 //flujo 2 problema computador
 const flujo2Computador = addKeyword("2").addAnswer("Posible solucion de: La computadora/laptop está demasiado lenta. 🐌")
-.addAnswer("1. Reinicia la computadora.")
+.addAnswer("1. Reinicia la computadora.", {
+    media: 'https://i.imgur.com/OBHBlo2.png'
+})
 .addAnswer("2. Cierra todos los programas y pestañas que no estés utilizando.")
 .addAnswer("Si sigue siendo demasiado lenta, escribe *Ticket* para que un asesor profesional te asista. ✅",
 null,
