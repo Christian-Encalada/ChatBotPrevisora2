@@ -10,7 +10,10 @@ const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
 
 
-// Función para validar la cédula en la base de datos
+
+let resultadoValidacion;
+
+// Función para validar la cédula en la base de datos y obtener el nombre asociado
 async function validarCedula(cedula) {
     console.log("🆗 Conexion a BD Usuarios ");
     const client = new Client({ user: POSTGRES_DB_USER2, password:POSTGRES_DB_PASSWORD2, database: POSTGRES_DB_NAME2 }) 
@@ -23,13 +26,16 @@ async function validarCedula(cedula) {
         
         // Si la consulta devuelve algún resultado, la cédula es válida
         if (resultado && resultado.rows.length > 0) {
-            return true;
+            const nombre = resultado.rows[0].nombre; // Obtener el nombre asociado a la cédula
+            return { valido: true, nombre: nombre }; // Devolver el nombre junto con la validez
         } else {
-            return false;
+            return { valido: false }; // Devolver solo la validez
         }
     } catch (error) {
         console.error('Error al validar la cédula en la base de datos:', error);
-        return false;
+        return { valido: false }; // Devolver solo la validez en caso de error
+    } finally {
+        await client.end(); // Cerrar la conexión con la base de datos
     }
 }
 
@@ -269,49 +275,46 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
 )    
 
 
-
-// Flujo principal
 const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
 .addAnswer('👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪', { capture: true }, 
     async (ctx, { fallBack }) => {
         const cedula = ctx.body.trim(); // Obtener la cédula ingresada
         // Validar la cédula en la base de datos
-        const cedulaValida = await validarCedula(cedula);
+        const resultadoValidacion = await validarCedula(cedula);
         console.log("🆗 Cedula validada");
-        console.log(cedulaValida);
+        console.log(resultadoValidacion);
         
         // Si la cédula es válida, enviar el mensaje para continuar
-        if (cedulaValida) {
-            addAnswer("Verificacion exitosa")
+        if (resultadoValidacion.valido) {
+            addAnswer('INGRESO EXITOSO ✅')
+            .addAnswer(`Bienvenido ${resultadoValidacion.nombre} 🫡 Soy Eribot  y puedo ayudarte con lo siguiente 📋:`,{
+                delay: 1000,
+            })
+            .addAnswer(
+                [
+                    '1. 🪪 Problemas de Contraseñas',
+                    '2. 🛜 Problemas con el Internet',
+                    '3. 💻 Problemas con el Computador'
+                ])    
+            .addAnswer(['Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆',
+                        "También puedes escribir *Terminar* para finalizar la conversación 🤖"
+                ],
+                { capture: true },
+                (ctx, { fallBack }) => {
+                    const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
+                    if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== 'terminar') {
+                        console.log("Mensaje entrante: ", ctx.body);
+                        return fallBack();
+                    } 
+                }, 
+                [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
+            );
         } else {
             // Si la cédula no es válida, enviar un mensaje de error y volver a pedir la cédula
             addAnswer("La cédula ingresada no es válida. Por favor intenta nuevamente.");
             return fallBack(); // Volver a este paso del flujo
         }
-    })
-.addAnswer('INGRESO EXITOSO ✅')
-.addAnswer('Bienvenido 🫡 Soy Eribot  y puedo ayudarte con lo siguiente 📋:',{
-    delay: 1000,
-})
-.addAnswer(
-        [
-            '1. 🪪 Problemas de Contraseñas',
-            '2. 🛜 Problemas con el Internet',
-            '3. 💻 Problemas con el Computador'])    
-.addAnswer(['Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆',
-            "También puedes escribir *Terminar* para finalizar la conversación 🤖"
-        ],
-        { capture: true },
-        (ctx, { fallBack }) => {
-            const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
-            if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== 'terminar') {
-                console.log("Mensaje entrante: ", ctx.body);
-                return fallBack();
-            } 
-        }, 
-        [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
-    )
-
+    });
 
 
 
