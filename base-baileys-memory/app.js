@@ -5,15 +5,16 @@ const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require
 const { Client } = require('pg')
 
 
+
+
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
 
+let nombreUsuario = ''; 
 
 
-let resultadoValidacion;
-
-// Función para validar la cédula en la base de datos y obtener el nombre asociado
+// Función para validar la cédula en la base de datos
 async function validarCedula(cedula) {
     console.log("🆗 Conexion a BD Usuarios ");
     const client = new Client({ user: POSTGRES_DB_USER2, password:POSTGRES_DB_PASSWORD2, database: POSTGRES_DB_NAME2 }) 
@@ -26,18 +27,18 @@ async function validarCedula(cedula) {
         
         // Si la consulta devuelve algún resultado, la cédula es válida
         if (resultado && resultado.rows.length > 0) {
-            const nombre = resultado.rows[0].nombre; // Obtener el nombre asociado a la cédula
-            return { valido: true, nombre: nombre }; // Devolver el nombre junto con la validez
+            nombreUsuario = resultado.rows[0].nombre; // Almacenar el nombre en la variable global
+            return { valid: true, nombre: nombreUsuario };
         } else {
-            return { valido: false }; // Devolver solo la validez
+            return { valid: false };
         }
     } catch (error) {
         console.error('Error al validar la cédula en la base de datos:', error);
-        return { valido: false }; // Devolver solo la validez en caso de error
-    } finally {
-        await client.end(); // Cerrar la conexión con la base de datos
+        return { valid: false };
     }
 }
+
+
 
 //flujo prueba
 const flujoPrueba = addKeyword(["1", "2", "3", "4", "5"]).addAnswer("Hasta la proxima. 👋")
@@ -68,7 +69,9 @@ null,
 [flujoFin, flujoTicket])
 
 //flujo 5 problema computador
-const flujo5Computador = addKeyword("5").addAnswer("Posible solucion de: Mi pantalla está en negro. ⬛ ")
+const flujo5Computador = addKeyword("5").addAnswer("Posible solucion de: Mi pantalla está en negro. ⬛ ", {
+    media: 'https://i.imgur.com/VhTPPu7.png'
+})
 .addAnswer("1. Si es una pc de escritorio asegúrate de que el cable de video (generalmente HDMI o VGA) esté conectado correctamente tanto a la pc como al monitor.")
 .addAnswer("2. Mantén presionado el botón de encendido durante varios segundos hasta que la laptop se apague por completo. Luego, enciéndela nuevamente para ver si se resuelve el problema..")
 .addAnswer("3. Si tienes una laptop con batería extraíble, apaga la laptop, retira la batería y mantenla fuera durante al menos un minuto. Vuelve a colocar la batería y enciende la laptop para ver si se soluciona el problema.")
@@ -82,7 +85,9 @@ null,
 //flujo 4 problema computador
 const flujo4Computador = addKeyword("4").addAnswer("Posible solucion de: No puedo imprimir. 🖨️")
 .addAnswer("1. Verifica que la impresora esté encendida y conectada correctamente a la computadora.")
-.addAnswer("2. Asegúrate de que haya papel y tinta o tóner suficiente en la impresora.")
+.addAnswer("2. Asegúrate de que haya papel y tinta o tóner suficiente en la impresora.", {
+    media: 'https://i.imgur.com/dberEF6.jpeg'
+})
 .addAnswer("3. Reinicia la impresora y la computadora.")
 .addAnswer("4. Intenta imprimir un documento diferente para descartar problemas con el archivo específico.")
 .addAnswer("Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅",
@@ -93,7 +98,9 @@ null,
 //flujo 3 problema computador
 const flujo3Computador = addKeyword("3").addAnswer("Posible solucion de: Pantalla congelada o sin respuesta. 🥶")
 .addAnswer(["1. Intenta presionar las teclas Ctrl + Alt + Supr con las que se te abriran unas opciones a las cuales puedes darle a BLOQUEAR, para volver a iniciar sesion y probablemente se descongelara la pantalla.",
-            "Tambien puedes darle a la opcion de 'Adminstrador de tareas' para cerrar algun programa que este casuando el congelamiento."])
+            "Tambien puedes darle a la opcion de 'Adminstrador de tareas' para cerrar algun programa que este casuando el congelamiento."], {
+                media: 'https://i.imgur.com/DXBoN2t.png'
+            })
 .addAnswer("2. Si eso no funciona, intenta reiniciar la computadora manteniendo presionado el botón de encendido durante unos segundos.")
 .addAnswer("Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅",
 null,
@@ -102,7 +109,9 @@ null,
 
 //flujo 2 problema computador
 const flujo2Computador = addKeyword("2").addAnswer("Posible solucion de: La computadora/laptop está demasiado lenta. 🐌")
-.addAnswer("1. Reinicia la computadora.")
+.addAnswer("1. Reinicia la computadora.", {
+    media: 'https://i.imgur.com/OBHBlo2.png'
+})
 .addAnswer("2. Cierra todos los programas y pestañas que no estés utilizando.")
 .addAnswer("Si sigue siendo demasiado lenta, escribe *Ticket* para que un asesor profesional te asista. ✅",
 null,
@@ -275,48 +284,49 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
 )    
 
 
-const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
+
+
+// Flujo principal
+const flujoPrincipal= addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
 .addAnswer('👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪', { capture: true }, 
-    async (ctx, { fallBack }) => {
+    async (ctx, { fallBack, flowDynamic }) => {
         const cedula = ctx.body.trim(); // Obtener la cédula ingresada
         // Validar la cédula en la base de datos
-        const resultadoValidacion = await validarCedula(cedula);
+        const cedulaValida = await validarCedula(cedula);
         console.log("🆗 Cedula validada");
-        console.log(resultadoValidacion);
+        console.log(cedulaValida);
         
         // Si la cédula es válida, enviar el mensaje para continuar
-        if (resultadoValidacion.valido) {
-            addAnswer('INGRESO EXITOSO ✅')
-            .addAnswer(`Bienvenido ${resultadoValidacion.nombre} 🫡 Soy Eribot  y puedo ayudarte con lo siguiente 📋:`,{
-                delay: 1000,
-            })
-            .addAnswer(
-                [
-                    '1. 🪪 Problemas de Contraseñas',
-                    '2. 🛜 Problemas con el Internet',
-                    '3. 💻 Problemas con el Computador'
-                ])    
-            .addAnswer(['Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆',
-                        "También puedes escribir *Terminar* para finalizar la conversación 🤖"
-                ],
-                { capture: true },
-                (ctx, { fallBack }) => {
-                    const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
-                    if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== 'terminar') {
-                        console.log("Mensaje entrante: ", ctx.body);
-                        return fallBack();
-                    } 
-                }, 
-                [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
-            );
+        if (cedulaValida.valid) {
+            return await flowDynamic(`¡Bienvenido ${cedulaValida.nombre}! 👋`);
         } else {
-            // Si la cédula no es válida, enviar un mensaje de error y volver a pedir la cédula
             addAnswer("La cédula ingresada no es válida. Por favor intenta nuevamente.");
-            return fallBack(); // Volver a este paso del flujo
+            return fallBack(); 
         }
-    });
+    })
+.addAnswer(`Soy Eribot y puedo ayudarte con lo siguiente 📋:`, {
+    delay: 1000
+})
+.addAnswer(
+        [
+            '1. 🪪 Problemas de Contraseñas',
+            '2. 🛜 Problemas con el Internet',
+            '3. 💻 Problemas con el Computador'])    
+.addAnswer(['Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆',
+            "También puedes escribir *Terminar* para finalizar la conversación 🤖"
+        ],
+        { capture: true },
+        (ctx, { fallBack }) => {
+            const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
+            if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== 'terminar') {
+                console.log("Mensaje entrante: ", ctx.body);
+                return fallBack();
+            } 
+        }, 
+        [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
+    )
 
-
+   
 
  //flujo Secundario
 const flujoSecundario = addKeyword(['Gracias', 'Muchas gracias']).addAnswer('De nada! 👌 Espero haberte ayudado')
@@ -329,6 +339,8 @@ const flujoBotones = addKeyword(["botones", "boton"]).addAnswer('Mira estas opci
     ]
    
 })
+
+
 
 const main = async () => {
     console.log("antes de crear la conexion");
