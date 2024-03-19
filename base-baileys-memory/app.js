@@ -5,9 +5,13 @@ const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require
 const { Client } = require('pg')
 
 
+
+
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
+
+let nombreUsuario = ''; 
 
 
 // Función para validar la cédula en la base de datos
@@ -23,15 +27,18 @@ async function validarCedula(cedula) {
         
         // Si la consulta devuelve algún resultado, la cédula es válida
         if (resultado && resultado.rows.length > 0) {
-            return true;
+            nombreUsuario = resultado.rows[0].nombre; // Almacenar el nombre en la variable global
+            return { valid: true, nombre: nombreUsuario };
         } else {
-            return false;
+            return { valid: false };
         }
     } catch (error) {
         console.error('Error al validar la cédula en la base de datos:', error);
-        return false;
+        return { valid: false };
     }
 }
+
+
 
 //flujo prueba
 const flujoPrueba = addKeyword(["1", "2", "3", "4", "5"]).addAnswer("Hasta la proxima. 👋")
@@ -278,10 +285,11 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
 
 
 
+
 // Flujo principal
-const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
+const flujoPrincipal= addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
 .addAnswer('👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪', { capture: true }, 
-    async (ctx, { fallBack }) => {
+    async (ctx, { fallBack, flowDynamic }) => {
         const cedula = ctx.body.trim(); // Obtener la cédula ingresada
         // Validar la cédula en la base de datos
         const cedulaValida = await validarCedula(cedula);
@@ -289,17 +297,15 @@ const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
         console.log(cedulaValida);
         
         // Si la cédula es válida, enviar el mensaje para continuar
-        if (cedulaValida) {
-            addAnswer("Verificacion exitosa")
+        if (cedulaValida.valid) {
+            return await flowDynamic(`¡Bienvenido ${cedulaValida.nombre}! 👋`);
         } else {
-            // Si la cédula no es válida, enviar un mensaje de error y volver a pedir la cédula
             addAnswer("La cédula ingresada no es válida. Por favor intenta nuevamente.");
-            return fallBack(); // Volver a este paso del flujo
+            return fallBack(); 
         }
     })
-.addAnswer('INGRESO EXITOSO ✅')
-.addAnswer('Bienvenido 🫡 Soy Eribot  y puedo ayudarte con lo siguiente 📋:',{
-    delay: 1000,
+.addAnswer(`Soy Eribot y puedo ayudarte con lo siguiente 📋:`, {
+    delay: 1000
 })
 .addAnswer(
         [
@@ -320,8 +326,7 @@ const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
         [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
     )
 
-
-
+   
 
  //flujo Secundario
 const flujoSecundario = addKeyword(['Gracias', 'Muchas gracias']).addAnswer('De nada! 👌 Espero haberte ayudado')
@@ -334,6 +339,8 @@ const flujoBotones = addKeyword(["botones", "boton"]).addAnswer('Mira estas opci
     ]
    
 })
+
+
 
 const main = async () => {
     console.log("antes de crear la conexion");
