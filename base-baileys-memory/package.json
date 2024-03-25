@@ -16,6 +16,7 @@
         "@bot-whatsapp/portal": "latest",
         "@bot-whatsapp/provider": "latest",
         "@whiskeysockets/baileys": "6.5.0",
+        "body-parser": "^1.20.2",
         "cache-manager": "5.2.4",
         "dotenv": "^16.4.5",
         "pg": "^8.11.3",

@@ -2,10 +2,10 @@
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB02052A34EA6F886BC18',
+    id: '3EB090FCBBC66611A54D32',
     participant: undefined
   },
-  messageTimestamp: 1710534879,
+  messageTimestamp: 1711403479,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -19,8 +19,8 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_ee221c9d-fd07-43c5-a176-6728991699e5',
-  keyword: 'key_53098951-d426-4754-ac75-4a67c677029f',
+  ref: 'ans_23e18c86-84f7-47e1-a81f-6414424c74ee',
+  keyword: 'key_77318461-0a0b-412e-af51-8ca45ee9fb8f',
   answer: '👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪',
   options: {
     media: null,
@@ -34,16 +34,54 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '22bbfec824d5d03c92fa650ca1cd7fe7'
+  refSerialize: 'b945a448362b2d1108c91534ed7ed359'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB01CE65AF33668C0B9C6',
+    id: '3EB07B94889D4A56D4A42E',
     participant: undefined
   },
-  messageTimestamp: 1710534883,
+  messageTimestamp: 1711403480,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    conversation: 'hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_23e18c86-84f7-47e1-a81f-6414424c74ee',
+  keyword: 'key_77318461-0a0b-412e-af51-8ca45ee9fb8f',
+  answer: '👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'b945a448362b2d1108c91534ed7ed359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB08D398C8197A55E7910',
+    participant: undefined
+  },
+  messageTimestamp: 1711403483,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -57,27 +95,9 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_9cd68cf0-845a-466f-a520-a8fcb2cd84b7',
-  keyword: 'ans_ee221c9d-fd07-43c5-a176-6728991699e5',
-  answer: 'INGRESO EXITOSO ✅',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'ce0fb5722a9e9343a616c1d00acb9e11'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_941e27c0-777c-4a91-ab23-bad092b7c3ec',
-  keyword: 'ans_9cd68cf0-845a-466f-a520-a8fcb2cd84b7',
-  answer: 'Bienvenido 🫡 Soy Eribot  y puedo ayudarte con lo siguiente 📋:',
+  ref: 'ans_44ec09f9-0cf3-487e-af48-0846a6155744',
+  keyword: 'ans_23e18c86-84f7-47e1-a81f-6414424c74ee',
+  answer: 'Soy Eribot y puedo ayudarte con lo siguiente 📋:',
   options: {
     media: null,
     buttons: [],
@@ -90,11 +110,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '5998a8843deb9253b9c3087ed6394684'
+  refSerialize: 'c12ebbbdb74fcf3c5ec13dadd4cee0b7'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_af75a3ab-c3c7-402c-96c0-5456881fcbaa',
-  keyword: 'ans_941e27c0-777c-4a91-ab23-bad092b7c3ec',
+  ref: 'ans_59a9d999-c357-4add-8878-09343c871e0c',
+  keyword: 'ans_44ec09f9-0cf3-487e-af48-0846a6155744',
   answer: '1. 🪪 Problemas de Contraseñas\n' +
     '2. 🛜 Problemas con el Internet\n' +
     '3. 💻 Problemas con el Computador',
@@ -110,11 +130,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '48ec20f8895910f36163ada7bc4bd2ff'
+  refSerialize: 'd0aec59b968166b142fede207e85ece0'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_fb1f7cc6-80c3-47f8-a1fe-ab438b600e91',
-  keyword: 'ans_af75a3ab-c3c7-402c-96c0-5456881fcbaa',
+  ref: 'ans_3b4e3cd5-8564-4460-b206-c8ba9cc6e80d',
+  keyword: 'ans_59a9d999-c357-4add-8878-09343c871e0c',
   answer: 'Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆\n' +
     'También puedes escribir *Terminar* para finalizar la conversación 🤖',
   options: {
@@ -137,32 +157,32 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '4825088deb24a163544ed70ddeec970b'
+  refSerialize: 'ef6cfaf1e97b7f81c3e6cef6b8bcc9ef'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB000529661FC69AC06A6',
+    id: '3EB0E2BE85465EDC58A052',
     participant: undefined
   },
-  messageTimestamp: 1710534887,
+  messageTimestamp: 1711403488,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
-    conversation: '3',
+    conversation: '1',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: '3',
+  body: '1',
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_0964a268-cd37-4cf2-91f2-3e9792e4a5c1',
-  answer: '¿Cual es tu problema? ',
-  keyword: 'key_3a812849-28b1-4336-acf3-1fdf5650c9f3',
+  ref: 'ans_472b0a0e-de7a-4ed2-b334-5b2aacbc622d',
+  answer: '¿Cual de estos es tu problema? 🧐 ',
+  keyword: 'key_ba29e44a-08a7-4e57-9588-25215e98d335',
   options: {
     ref: null,
     idle: null,
@@ -175,22 +195,12 @@
     keyword: {},
     callback: false
   },
-  refSerialize: 'ac12f1111aa82037a6c79aae605530f4'
+  refSerialize: '8906f0d058f204d57e74a49acf8e3f03'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_3b80e3ac-cc37-4374-b51c-991afc0e37fb',
-  answer: '1. La computadora/laptop no enciende 💻\n' +
-    '\n' +
-    '2. La computadora/laptop está demasiado lenta. 🐌\n' +
-    '\n' +
-    '3. Pantalla congelada o sin respuesta. 🥶\n' +
-    '\n' +
-    '4. No puedo imprimir. 🖨️\n' +
-    '\n' +
-    '5. Mi pantalla está en negro. ⬛\n' +
-    '\n' +
-    '6. Olvidé mi contraseña de inicio de sesión. 👨‍💻 ',
-  keyword: 'ans_0964a268-cd37-4cf2-91f2-3e9792e4a5c1',
+  ref: 'ans_f9a63e55-4c36-431c-b2a6-d8f7963de908',
+  answer: '1. Olvide mi contraseña 🪪\n\n2. Cambiar contraseña 🔑',
+  keyword: 'ans_472b0a0e-de7a-4ed2-b334-5b2aacbc622d',
   options: {
     ref: null,
     idle: null,
@@ -203,13 +213,13 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '01793494cc10c5f5898d78b8c7bc8a62'
+  refSerialize: 'f03e94bb4a718b6a7c90755aeea8a8b4'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4032cc8d-7790-41ae-9180-a0f281c85230',
-  answer: 'Escribe el número *1*, *2*, *3*, *4*, *5* o *6* según tu necesidad en el chat 👆\n' +
+  ref: 'ans_8d3773fc-ed8f-41e4-9931-4e51425a2e40',
+  answer: 'Escribe el numero *1* o *2* segun tu necesidad en el chat 👆\n' +
     'También puedes escribir *Terminar* para finalizar la conversación 🤖',
-  keyword: 'ans_3b80e3ac-cc37-4374-b51c-991afc0e37fb',
+  keyword: 'ans_f9a63e55-4c36-431c-b2a6-d8f7963de908',
   options: {
     ref: null,
     idle: null,
@@ -217,15 +227,10 @@
     delay: 0,
     media: null,
     nested: [
-      [Object], [Object], [Object], [Object],
-      [Object], [Object], [Object], [Object],
-      [Object], [Object], [Object], [Object],
-      [Object], [Object], [Object], [Object],
-      [Object], [Object], [Object], [Object],
-      [Object], [Object], [Object], [Object],
-      [Object], [Object], [Object], [Object],
-      [Object], [Object], [Object], [Object],
-      [Object], [Object], [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
       [Object], [Object]
     ],
     buttons: [],
@@ -233,209 +238,83 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '2354832c68d04df199339582838dce8f'
+  refSerialize: '01d8cfaaa5ab255fba3d0a38adcdf7b0'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB02A8D5D0B2649591D96',
+    id: '3EB0F87B29C55A6E742980',
     participant: undefined
   },
-  messageTimestamp: 1710534890,
+  messageTimestamp: 1711403490,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
-    conversation: '4',
+    conversation: '1',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: '4',
+  body: '1',
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_510ac7e8-df47-4719-9066-ceaeac5aa309',
-  answer: 'Posible solucion de: No puedo imprimir. 🖨️',
-  keyword: 'key_2e17b564-bb6f-40d2-aa1d-377c7738235c',
+  ref: 'ans_e94ad779-b3ee-445e-8fe3-0c7c142456db',
+  answer: '¡No te preocupes! 🫡 Aquí están los pasos para recuperar tu contraseña:',
+  keyword: 'key_807f2f53-cfeb-49e5-b2c2-cce5e13d21ad',
   options: {
     ref: null,
     idle: null,
     child: null,
     delay: 0,
-    media: null,
+    media: 'https://i.imgur.com/LQI8cPY.png',
     nested: [],
     buttons: [],
     capture: false,
     keyword: {},
     callback: false
   },
-  refSerialize: 'd1b3dc288ddc9040b4f280593edabbff'
+  refSerialize: '67dceabc10c3ea701ee8987bca4afb1a'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cc4bf621-1bc3-4c7b-a657-d7e33584be0e',
-  answer: '1. Verifica que la impresora esté encendida y conectada correctamente a la computadora.',
-  keyword: 'ans_510ac7e8-df47-4719-9066-ceaeac5aa309',
+  ref: 'ans_691c56f6-0185-4ed0-9a4d-d6d1b78c5aaa',
+  answer: '👇',
+  keyword: 'ans_e94ad779-b3ee-445e-8fe3-0c7c142456db',
   options: {
     ref: null,
     idle: null,
     child: null,
     delay: 0,
-    media: null,
+    media: 'https://i.imgur.com/0w0zIs0.png',
     nested: [],
     buttons: [],
     capture: false,
     keyword: {},
     callback: false
   },
-  refSerialize: '8a227493d6a2b03c726cdbb6a57e6916'
+  refSerialize: '6ac120edeb9548b083b8ef7ac854e0d3'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_039a420b-dee1-4935-a015-4340d76d3d61',
-  answer: '2. Asegúrate de que haya papel y tinta o tóner suficiente en la impresora.',
-  keyword: 'ans_cc4bf621-1bc3-4c7b-a657-d7e33584be0e',
-  options: {
-    ref: null,
-    idle: null,
-    child: null,
-    delay: 0,
-    media: 'https://i.imgur.com/dberEF6.jpeg',
-    nested: [],
-    buttons: [],
-    capture: false,
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '2cb0a504378d3bdc09e510532f2f6b9f'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4581dbf4-2b08-4e05-9bb8-fc02879aa190',
-  answer: '3. Reinicia la impresora y la computadora.',
-  keyword: 'ans_039a420b-dee1-4935-a015-4340d76d3d61',
+  ref: 'ans_fb0fbd36-0160-416c-b5e7-8e36b5504399',
+  answer: '1. Ve a nuestro sitio web: https://bpm.manabi.gob.ec/ \n' +
+    "2. haz clic en 'Olvidé mi contraseña' \n" +
+    '3. Sigue las instrucciones de la pagina para restablecer tu contraseña\n' +
+    '¡Listo! podras recuperar tu contraseña exitosamente.\n' +
+    'Puedes escribir *Terminar* para finalizar la conversación 🤖',
+  keyword: 'ans_691c56f6-0185-4ed0-9a4d-d6d1b78c5aaa',
   options: {
     ref: null,
     idle: null,
     child: null,
     delay: 0,
     media: null,
-    nested: [],
+    nested: [ [Object], [Object], [Object] ],
     buttons: [],
     capture: false,
     keyword: {},
     callback: false
   },
-  refSerialize: '7a8692a93214d2cea09a3062aa6a1df2'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_ca9c015c-7eee-4066-a5cd-b4d6831b791c',
-  answer: '4. Intenta imprimir un documento diferente para descartar problemas con el archivo específico.',
-  keyword: 'ans_4581dbf4-2b08-4e05-9bb8-fc02879aa190',
-  options: {
-    ref: null,
-    idle: null,
-    child: null,
-    delay: 0,
-    media: null,
-    nested: [],
-    buttons: [],
-    capture: false,
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'ffc5bcc036325a949d4fd797adb3b8ca'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_97ab70f7-6c07-4fa1-9003-7c5562dbf15a',
-  answer: 'Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅',
-  keyword: 'ans_ca9c015c-7eee-4066-a5cd-b4d6831b791c',
-  options: {
-    ref: null,
-    idle: null,
-    child: null,
-    delay: 0,
-    media: null,
-    nested: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
-    buttons: [],
-    capture: false,
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '7b473543f49836341ab35972ac4e365c'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '593959142592@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB07ACA37FA10B004FABA',
-    participant: undefined
-  },
-  messageTimestamp: 1710535766,
-  pushName: 'AB 💤',
-  broadcast: false,
-  message: Message {
-    conversation: 'ticket',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'ticket',
-  from: '593959142592'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_b377ca33-78a4-407c-b185-ec128e6c829c',
-  answer: 'Buenas pronto un asesor personalizado se pondra en contacto contigo... 🫡',
-  keyword: 'key_84e8648c-0e5e-474d-8c11-09fd13ac4e55',
-  options: {
-    ref: null,
-    idle: null,
-    child: null,
-    delay: 0,
-    media: null,
-    nested: [],
-    buttons: [],
-    capture: false,
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '73e7adb11e53f79c66bb3a28e9af917f'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_958ab7f2-fcf6-4762-bf18-2cae826ae6ab',
-  answer: 'Funcion aun no disponible... 🤖',
-  keyword: 'ans_b377ca33-78a4-407c-b185-ec128e6c829c',
-  options: {
-    ref: null,
-    idle: null,
-    child: null,
-    delay: 0,
-    media: null,
-    nested: [],
-    buttons: [],
-    capture: false,
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '10f98d839f7ec2b9761e56c9626ca341'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '593959142592@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB09C589FDDFA65DD6DAE',
-    participant: undefined
-  },
-  messageTimestamp: 1710535771,
-  pushName: 'AB 💤',
-  broadcast: false,
-  message: Message {
-    conversation: 'terminar',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'terminar',
-  from: '593959142592'
+  refSerialize: 'e2a215a4397b903e471b262a0d6b1dd4'
 }
