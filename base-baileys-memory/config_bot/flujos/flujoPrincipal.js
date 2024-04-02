@@ -1,12 +1,14 @@
 require('dotenv').config(); // Cargar las variables de entorno desde el archivo .env
-const { POSTGRES_DB_HOST, POSTGRES_DB_USER, POSTGRES_DB_PASSWORD, POSTGRES_DB_NAME, POSTGRES_DB_PORT } = process.env;
+const { Client } = require('pg');
+const { POSTGRES_DB_HOST, POSTGRES_DB_USER, POSTGRES_DB_PASSWORD, POSTGRES_DB_NAME, POSTGRES_DB_PORT, POSTGRES_DB_HOST2, POSTGRES_DB_USER2, POSTGRES_DB_PASSWORD2, POSTGRES_DB_NAME2, POSTGRES_DB_PORT2 } = process.env;
 const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require('@bot-whatsapp/bot')
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
 
 const validarCedula = require('../validacion/validarCedula');
-
+// Objeto para mapear números de teléfono a cédulas de usuario
+const cedulasPorTelefono = {};
 
 
 //flujo prueba
@@ -15,13 +17,40 @@ const flujoPrueba = addKeyword(["1", "2", "3", "4", "5"]).addAnswer("Hasta la pr
 
 const flujoFin = addKeyword("terminar").addAnswer("Gracias por usar Eribot. 🤖")
 .addAnswer('Por favor califica nuestro servicio del: *1 al 5* ⭐⭐⭐⭐⭐', { capture: true },
-(ctx, { fallBack }) => {
-    const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
-            if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== '4' && textoEntrante !== '5') {
-                console.log("Mensaje entrante: ", ctx.body);
+    async (ctx, { capture, fallBack }) => {
+        const calificacion = ctx.body.trim(); // Obtener la calificación ingresada por el usuario
+        // Obtener la cédula del usuario del objeto cedulasPorTelefono
+        const cedulaUsuario = cedulasPorTelefono[ctx.sender];
+        
+        // Verificar si se encontró la cédula del usuario
+        if (cedulaUsuario) {
+            const nombreUsuario = cedulaUsuario; // Cambiar cedulaUsuario a nombreUsuario
+            // Insertar la calificación junto con el nombre del usuario en la base de datos
+            const client = new Client({ user: POSTGRES_DB_USER2, password: POSTGRES_DB_PASSWORD2, database: POSTGRES_DB_NAME2 });
+            await client.connect();
+            try {
+                await client.query('INSERT INTO calificacion (nombre_usuario, puntaje) VALUES ($1, $2)', [nombreUsuario, calificacion]); // Cambiar cedula_usuario a nombre_usuario
+                console.log('Calificación registrada en la base de datos');
+                // Resto del flujo
+            } catch (error) {
+                console.error('Error al insertar la calificación en la base de datos:', error);
+                // En caso de error, enviar un mensaje de error y volver a pedir la calificación
+                addAnswer("Ocurrió un error al registrar la calificación. Por favor intenta nuevamente.");
                 return fallBack();
-            } 
-        },[flujoPrueba])
+            } finally {
+                await client.end();
+            }
+        } else {
+            // En caso de que no se haya encontrado la cédula del usuario, mostrar un mensaje de error
+            console.error('No se encontró la cédula del usuario.');
+            addAnswer("Ocurrió un error al registrar la calificación. Por favor intenta nuevamente.");
+            return fallBack();
+        }
+    },[flujoPrueba]
+);
+
+
+
 
 
 
@@ -254,45 +283,47 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
 
 
 
-
 // Flujo principal
-const flujoPrincipal= addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
-.addAnswer('👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪', { capture: true }, 
-    async (ctx, { fallBack, flowDynamic }) => {
-        const cedula = ctx.body.trim(); // Obtener la cédula ingresada
-        // Validar la cédula en la base de datos
-        const cedulaValida = await validarCedula(cedula);
-        console.log("🆗 Cedula validada");
-        console.log(cedulaValida);
-        
-        // Si la cédula es válida, enviar el mensaje para continuar
-        if (cedulaValida.valid) {
-            return await flowDynamic(`¡Bienvenido ${cedulaValida.nombre}! 👋`);
-        } else {
-            addAnswer("La cédula ingresada no es válida. Por favor intenta nuevamente.");
-            return fallBack(); 
-        }
+const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches'])
+    .addAnswer('👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪', { capture: true }, 
+        async (ctx, { fallBack, flowDynamic }) => {
+            const cedula = ctx.body.trim(); // Obtener la cédula ingresada
+            // Validar la cédula en la base de datos
+            const cedulaValida = await validarCedula(cedula);
+            console.log("🆗 Cedula validada");
+            console.log(cedulaValida);
+            
+            // Si la cédula es válida, almacenarla en el objeto y enviar el mensaje de bienvenida
+            if (cedulaValida.valid) {
+                cedulasPorTelefono[ctx.sender] = cedulaValida.nombre; // Almacenar la cédula en el objeto
+                return await flowDynamic(`¡Bienvenido ${cedulaValida.nombre}! 👋`);
+            } else {
+                addAnswer("La cédula ingresada no es válida. Por favor intenta nuevamente.");
+                return fallBack(); 
+            }
+        })
+    .addAnswer(`Soy Eribot y puedo ayudarte con lo siguiente 📋:`, {
+        delay: 1000
     })
-.addAnswer(`Soy Eribot y puedo ayudarte con lo siguiente 📋:`, {
-    delay: 1000
-})
-.addAnswer(
+    .addAnswer(
         [
             '1. 🪪 Problemas de Contraseñas',
             '2. 🛜 Problemas con el Internet',
-            '3. 💻 Problemas con el Computador'])    
-.addAnswer(['Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆',
-            "También puedes escribir *Terminar* para finalizar la conversación 🤖"
-        ],
-        { capture: true },
-        (ctx, { fallBack }) => {
-            const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
-            if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== 'terminar') {
-                console.log("Mensaje entrante: ", ctx.body);
-                return fallBack();
-            } 
-        }, 
-        [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
-    )
+            '3. 💻 Problemas con el Computador'
+        ])    
+    .addAnswer(['Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆',
+                "También puedes escribir *Terminar* para finalizar la conversación 🤖"
+            ],
+            { capture: true },
+            (ctx, { fallBack }) => {
+                const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
+                if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== 'terminar') {
+                    console.log("Mensaje entrante: ", ctx.body);
+                    return fallBack();
+                } 
+            }, 
+            [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
+        );
 
-    module.exports = flujoPrincipal;
+// Exportar el flujo principal
+module.exports = flujoPrincipal;
