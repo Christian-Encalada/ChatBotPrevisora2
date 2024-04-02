@@ -6,7 +6,9 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
 
-const validarCedula = require('../validacion/validarCedula');
+const validarCedula = require('../funciones/validarCedula');
+const enviar_calificacion = require('../funciones/enviar_calificacion');
+
 // Objeto para mapear números de teléfono a cédulas de usuario
 const cedulasPorTelefono = {};
 
@@ -19,35 +21,19 @@ const flujoFin = addKeyword("terminar").addAnswer("Gracias por usar Eribot. 🤖
 .addAnswer('Por favor califica nuestro servicio del: *1 al 5* ⭐⭐⭐⭐⭐', { capture: true },
     async (ctx, { capture, fallBack }) => {
         const calificacion = ctx.body.trim(); // Obtener la calificación ingresada por el usuario
-        // Obtener la cédula del usuario del objeto cedulasPorTelefono
-        const cedulaUsuario = cedulasPorTelefono[ctx.sender];
         
-        // Verificar si se encontró la cédula del usuario
-        if (cedulaUsuario) {
-            const nombreUsuario = cedulaUsuario; // Cambiar cedulaUsuario a nombreUsuario
-            // Insertar la calificación junto con el nombre del usuario en la base de datos
-            const client = new Client({ user: POSTGRES_DB_USER2, password: POSTGRES_DB_PASSWORD2, database: POSTGRES_DB_NAME2 });
-            await client.connect();
-            try {
-                await client.query('INSERT INTO calificacion (nombre_usuario, puntaje) VALUES ($1, $2)', [nombreUsuario, calificacion]); // Cambiar cedula_usuario a nombre_usuario
-                console.log('Calificación registrada en la base de datos');
-                // Resto del flujo
-            } catch (error) {
-                console.error('Error al insertar la calificación en la base de datos:', error);
-                // En caso de error, enviar un mensaje de error y volver a pedir la calificación
-                addAnswer("Ocurrió un error al registrar la calificación. Por favor intenta nuevamente.");
-                return fallBack();
-            } finally {
-                await client.end();
-            }
+        const insercionExitosa = await enviar_calificacion(ctx, calificacion, cedulasPorTelefono);
+        
+        if (insercionExitosa) {
+            // Resto del flujo
         } else {
-            // En caso de que no se haya encontrado la cédula del usuario, mostrar un mensaje de error
-            console.error('No se encontró la cédula del usuario.');
+            // En caso de error, enviar un mensaje de error y volver a pedir la calificación
             addAnswer("Ocurrió un error al registrar la calificación. Por favor intenta nuevamente.");
             return fallBack();
         }
     },[flujoPrueba]
 );
+
 
 
 

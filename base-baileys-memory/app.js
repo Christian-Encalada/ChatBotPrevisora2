@@ -1,7 +1,7 @@
 require('dotenv').config(); // Cargar las variables de entorno desde el archivo .env
 const { POSTGRES_DB_HOST, POSTGRES_DB_USER, POSTGRES_DB_PASSWORD, POSTGRES_DB_NAME, POSTGRES_DB_PORT } = process.env;
 const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require('@bot-whatsapp/bot')
-const validarCedula = require('./config_bot/validacion/validarCedula')
+const validarCedula = require('./config_bot/funciones/validarCedula')
 const flujoPrincipal = require('./config_bot/flujos/flujoPrincipal')
 const flujoSecundario = require('./config_bot/flujos/flujoSecundario')
 
