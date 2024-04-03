@@ -1,10 +1,12 @@
 require('dotenv').config(); // Cargar las variables de entorno desde el archivo .env
 const { Client } = require('pg');
 const { POSTGRES_DB_HOST, POSTGRES_DB_USER, POSTGRES_DB_PASSWORD, POSTGRES_DB_NAME, POSTGRES_DB_PORT, POSTGRES_DB_HOST2, POSTGRES_DB_USER2, POSTGRES_DB_PASSWORD2, POSTGRES_DB_NAME2, POSTGRES_DB_PORT2 } = process.env;
-const { createBot, createProvider, createFlow, addKeyword, addAnswer } = require('@bot-whatsapp/bot')
+const { createBot, createProvider, createFlow, addKeyword, addAnswer, idle  } = require('@bot-whatsapp/bot')
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const PostgreSQLAdapter  = require('@bot-whatsapp/database/postgres')
+const flujoInactivo = require('./flujoInactivo')
+
 
 const validarCedula = require('../funciones/validarCedula');
 const enviar_calificacion = require('../funciones/enviar_calificacion');
@@ -299,8 +301,13 @@ const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
     .addAnswer(['Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆',
                 "También puedes escribir *Terminar* para finalizar la conversación 🤖"
             ],
-            { capture: true },
-            (ctx, { fallBack }) => {
+            { capture: true, idle: 300000 }, // 300000 milisegundos = 5 minutos
+            async (ctx, { fallBack }) => {
+                // Manejar la acción de inactividad
+                if (ctx.idleFallBack) {
+                    enviarMensajeCierreSesion(ctx);
+                    return gotoFlow(flujoInactivo);
+                }
                 const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
                 if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== 'terminar') {
                     console.log("Mensaje entrante: ", ctx.body);
@@ -310,5 +317,4 @@ const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
             [flujoContrasena, flujoInternet, flujoComputador, flujoReseña]
         );
         
-// Exportar el flujo principal
 module.exports = flujoPrincipal;

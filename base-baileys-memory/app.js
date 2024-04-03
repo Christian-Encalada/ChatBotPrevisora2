@@ -22,7 +22,7 @@ const main = async () => {
     })
 
 console.log("despues de crear la conexion");
-    const adapterFlow = createFlow([flujoPrincipal])
+    const adapterFlow = createFlow([flujoPrincipal, flujoSecundario])
     const adapterProvider = createProvider(BaileysProvider)
 
     createBot({
