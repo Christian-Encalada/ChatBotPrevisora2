@@ -14,16 +14,19 @@ const cedulasPorTelefono = {};
 
 
 //flujo prueba
-const flujoPrueba = addKeyword(["1", "2", "3", "4", "5"]).addAnswer("Hasta la proxima. 👋")
+const flujoFin = addKeyword(["1", "2", "3", "4", "5"]).addAnswer("Hasta la proxima. 👋")
 
 
-const flujoFin = addKeyword("terminar").addAnswer("Gracias por usar Eribot. 🤖")
+const flujoReseña = addKeyword("terminar").addAnswer("Gracias por usar Eribot. 🤖")
 .addAnswer('Por favor califica nuestro servicio del: *1 al 5* ⭐⭐⭐⭐⭐', { capture: true },
     async (ctx, { capture, fallBack }) => {
+        const textoEntrante = ctx.body.trim().toLowerCase(); // Convertir a minúsculas 
+        if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3' && textoEntrante !== '4' && textoEntrante !== '5') {
+            console.log("Mensaje entrante: ", ctx.body);
+            return fallBack();
+        } 
         const calificacion = ctx.body.trim(); // Obtener la calificación ingresada por el usuario
-        
         const insercionExitosa = await enviar_calificacion(ctx, calificacion, cedulasPorTelefono);
-        
         if (insercionExitosa) {
             // Resto del flujo
         } else {
@@ -31,12 +34,8 @@ const flujoFin = addKeyword("terminar").addAnswer("Gracias por usar Eribot. 🤖
             addAnswer("Ocurrió un error al registrar la calificación. Por favor intenta nuevamente.");
             return fallBack();
         }
-    },[flujoPrueba]
+    },[flujoFin]
 );
-
-
-
-
 
 
 
@@ -64,7 +63,7 @@ const flujo5Computador = addKeyword("5").addAnswer("Posible solucion de: Mi pant
 .addAnswer(" Si nada de esto funciona, o verificaste que el problema es la pantalla escribe *Ticket* para que un asesor profesional te ayude. ✅ ",
 null,
 null,
-[flujoFin, flujoTicket])
+[flujoReseña, flujoTicket])
 
 //flujo 4 problema computador
 const flujo4Computador = addKeyword("4").addAnswer("Posible solucion de: No puedo imprimir. 🖨️")
@@ -77,7 +76,7 @@ const flujo4Computador = addKeyword("4").addAnswer("Posible solucion de: No pued
 .addAnswer("Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅",
 null,
 null,
-[flujoFin, flujoTicket])
+[flujoReseña, flujoTicket])
 
 //flujo 3 problema computador
 const flujo3Computador = addKeyword("3").addAnswer("Posible solucion de: Pantalla congelada o sin respuesta. 🥶")
@@ -89,7 +88,7 @@ const flujo3Computador = addKeyword("3").addAnswer("Posible solucion de: Pantall
 .addAnswer("Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅",
 null,
 null,
-[flujoFin, flujoTicket])
+[flujoReseña, flujoTicket])
 
 //flujo 2 problema computador
 const flujo2Computador = addKeyword("2").addAnswer("Posible solucion de: La computadora/laptop está demasiado lenta. 🐌")
@@ -100,7 +99,7 @@ const flujo2Computador = addKeyword("2").addAnswer("Posible solucion de: La comp
 .addAnswer("Si sigue siendo demasiado lenta, escribe *Ticket* para que un asesor profesional te asista. ✅",
 null,
 null,
-[flujoFin, flujoTicket])
+[flujoReseña, flujoTicket])
 
 //flujo 1 problema computador
 const flujo1Computador = addKeyword("1").addAnswer("Posible solucion de: La computadora/laptop no enciende 💻")
@@ -113,7 +112,7 @@ const flujo1Computador = addKeyword("1").addAnswer("Posible solucion de: La comp
 .addAnswer("5. Si nada de esto funciona, escribe *Ticket* para que un asesor profesional te ayude. ✅",
 null,
 null,
-[flujoFin, flujoTicket])
+[flujoReseña, flujoTicket])
 
 
 
@@ -158,7 +157,7 @@ const flujoCableado = addKeyword("cableado").addAnswer("Si tienes cableado inten
 .addAnswer("Pero en el caso de que esto no alla solucionado tu problema  de conexion 😓 escribe *Ticket* para que un asesor profesional pueda ayudarte ✅",
 null,
 null,
-[flujoFin, flujoTicket]
+[flujoReseña, flujoTicket]
 )
 
 
@@ -172,7 +171,7 @@ const flujoWifi = addKeyword("wifi").addAnswer("Si tienes wifi intenta esto: ")
 .addAnswer("Pero en el caso de que esto no alla solucionado tu problema  de wifi 😓 escribe *Ticket* para que un asesor profesional pueda ayudarte. ✅",
     null,
     null,
-    [flujoFin, flujoTicket]
+    [flujoReseña, flujoTicket]
 )
 
 
@@ -185,7 +184,7 @@ const flujoAllPaginas = addKeyword("2").addAnswer("Para poder ayudarte con tu pr
         console.log("Mensaje entrante: ", ctx.body);
         return fallBack();
     }},
-    [flujoWifi, flujoCableado, flujoFin])
+    [flujoWifi, flujoCableado, flujoReseña])
 
     
 //flujo si no le carga 1 pagina en especifico     
@@ -199,7 +198,7 @@ const flujo1Pagina = addKeyword("1").addAnswer("Posible Solucion: ")
 .addAnswer("Puedes escribir *Terminar* para finalizar la conversación 🤖", 
 null,
 null,
-[flujoTicket, flujoFin])
+[flujoTicket, flujoReseña])
 
 
 
@@ -218,7 +217,7 @@ const flujoInternet = addKeyword("2").addAnswer("¿Cual es tu problema 🧐?")
                     console.log("Mensaje entrante: ", ctx.body);
                     return fallBack();
                 } 
-        },[flujo1Pagina,flujoAllPaginas ,flujoFin])
+        },[flujo1Pagina,flujoAllPaginas ,flujoReseña])
 
 //flujo  si  olvide contraseña
 const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! 🫡 Aquí están los pasos para recuperar tu contraseña:", {
@@ -264,7 +263,7 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
                       return fallBack();
                   } 
               },
-              [flujoOlvideContrasena, flujoCambiarContrasena, flujoFin]
+              [flujoOlvideContrasena, flujoCambiarContrasena, flujoReseña]
 )    
 
 
@@ -308,8 +307,8 @@ const flujoPrincipal = addKeyword(['hola', 'ola', 'oli', 'oa', 'buenas', 'buenos
                     return fallBack();
                 } 
             }, 
-            [flujoContrasena, flujoInternet, flujoComputador, flujoFin]
+            [flujoContrasena, flujoInternet, flujoComputador, flujoReseña]
         );
-
+        
 // Exportar el flujo principal
 module.exports = flujoPrincipal;
