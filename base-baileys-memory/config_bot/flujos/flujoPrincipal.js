@@ -51,7 +51,7 @@ const flujo6Computador = addKeyword("6").addAnswer("Posible solucion de: Olvidé
 .addAnswer("Escribe *Ticket* para notificar a un asesor profesional de tu problema ✅",
 null,
 null,
-[flujoFin, flujoTicket])
+[flujoReseña, flujoTicket])
 
 //flujo 5 problema computador
 const flujo5Computador = addKeyword("5").addAnswer("Posible solucion de: Mi pantalla está en negro. ⬛ ", {
@@ -141,7 +141,7 @@ const flujoComputador = addKeyword("3").addAnswer("¿Cual es tu problema? ")
             if (textoEntrante !== '1' && textoEntrante !== '2' && textoEntrante !== '3'  && textoEntrante !== '4' && textoEntrante !== '5' && textoEntrante !== '6' && textoEntrante !== 'terminar') {
                 console.log("Mensaje entrante: ", ctx.body);
                 return fallBack();
-            }},[flujoFin, flujo1Computador, flujo2Computador, flujo3Computador, flujo4Computador, flujo5Computador, flujo6Computador])
+            }},[flujoReseña, flujo1Computador, flujo2Computador, flujo3Computador, flujo4Computador, flujo5Computador, flujo6Computador])
         
 
 //flujo si esta cableado            
@@ -235,7 +235,7 @@ const flujoOlvideContrasena = addKeyword("1").addAnswer("¡No te preocupes! 🫡
             "Puedes escribir *Terminar* para finalizar la conversación 🤖" ],
              null, 
              null, 
-             [flujoFin])
+             [flujoReseña])
 
 
 //flujo para saber como cambiar contraseña
@@ -248,7 +248,7 @@ const flujoCambiarContrasena = addKeyword("2").addAnswer("Aquí están los pasos
             "¡Listo! podras cambiar tu contraseña exitosamente.",
             "Puedes escribir *Terminar* para finalizar la conversación 🤖"], 
             null, 
-            null, [flujoFin])
+            null, [flujoReseña])
 
 
 //FLujo de problemas recurrentes con la contraseña
