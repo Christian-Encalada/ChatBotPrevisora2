@@ -48,8 +48,8 @@ npm start
 
 ![image](https://github.com/Christian-Encalada/ChatBotPrevisora2/assets/115563495/3f5ccd88-1e15-48cd-8169-45a82463c74b)
 
-```
 
----
+
+
 ## Recursos
 - [📄 Documentación](https://bot-whatsapp.netlify.app/)
