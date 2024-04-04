@@ -24,12 +24,21 @@ const main = async () => {
         database: adapterDB,
     })
 }
-```
-Para empezar usar este codigo segue los siguientes pasos:
 
-clona el repositorio en maquina utilizando un IDE como Visual Studio.
+Requisitos previos:
+Tener instalado: 
+Nodejs
+git
+
+
+```
+Para empezar usar este codigo sigue los siguientes pasos:
+
+clona el repositorio en tu maquina utilizando un IDE como Visual Studio.
 <img width="651" alt="image" src="https://github.com/Christian-Encalada/ChatBotPrevisora2/assets/115563495/31825213-8440-4901-a595-8d91e803767b">
+
 Instala las dependecias necesarias con el siguiente comando en la terminal:
+
 npm install
 
 ![image](https://github.com/Christian-Encalada/ChatBotPrevisora2/assets/115563495/84738a00-eacc-41b8-965c-2e6d3ae40cd7)}
