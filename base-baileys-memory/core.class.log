@@ -2,10 +2,10 @@
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0D6FFB0ED4FDC75CE59',
+    id: '3EB040FC1C312E22338BA2',
     participant: undefined
   },
-  messageTimestamp: 1712179623,
+  messageTimestamp: 1712180221,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -23,8 +23,8 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_612b7241-d08a-4224-8ef8-4823724d1c1a',
-  keyword: 'key_d0d52298-b317-4b59-9212-dddb8e02dbc3',
+  ref: 'ans_8856628d-04bb-41a9-b7db-0315b7bc86a8',
+  keyword: 'key_2e8dad64-838b-43eb-93b8-326f3fe944ff',
   answer: '👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪',
   options: {
     media: null,
@@ -38,16 +38,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'a98a4271316d22139a1647ef49a1aa15'
+  refSerialize: '06fb632dd860f79addfefbc163715135'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0DE68DCCDCF22CC41ED',
+    id: '3EB0DB9483725A682CC3C6',
     participant: undefined
   },
-  messageTimestamp: 1712179628,
+  messageTimestamp: 1712180231,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -65,8 +65,8 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_bc413b60-ab34-4003-bff5-d4c09d3bc248',
-  keyword: 'ans_612b7241-d08a-4224-8ef8-4823724d1c1a',
+  ref: 'ans_ac3a9f82-4011-4488-9eb8-40aba8b74930',
+  keyword: 'ans_8856628d-04bb-41a9-b7db-0315b7bc86a8',
   answer: 'Soy Eribot y puedo ayudarte con lo siguiente 📋:',
   options: {
     media: null,
@@ -80,11 +80,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '7a8ca43b3b18b145d64d66167ab74686'
+  refSerialize: '0a68d8a2cc8c31761765ce02673b87f9'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_c47a4714-29c9-4aa3-95ae-53a3094c1f8f',
-  keyword: 'ans_bc413b60-ab34-4003-bff5-d4c09d3bc248',
+  ref: 'ans_a1ce08e6-ab93-48f3-baa8-dcec2ef4f373',
+  keyword: 'ans_ac3a9f82-4011-4488-9eb8-40aba8b74930',
   answer: '1. 🪪 Problemas de Contraseñas\n' +
     '2. 🛜 Problemas con el Internet\n' +
     '3. 💻 Problemas con el Computador',
@@ -100,11 +100,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '15199e70d5034130892f6e97421bf21e'
+  refSerialize: '63951f5e663ff63fee80031d353d41b7'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_e9f6a7ed-c4a2-45fd-840d-e0d17631809f',
-  keyword: 'ans_c47a4714-29c9-4aa3-95ae-53a3094c1f8f',
+  ref: 'ans_0ecc706e-94be-4027-a873-ce9beaa48150',
+  keyword: 'ans_a1ce08e6-ab93-48f3-baa8-dcec2ef4f373',
   answer: 'Escribe el número *1*, *2* o *3* según tu necesidad en el chat 👆\n' +
     'También puedes escribir *Terminar* para finalizar la conversación 🤖',
   options: {
@@ -127,16 +127,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'bbe2d6fdc3675c71da2c5c91300bd1d4'
+  refSerialize: 'e4773e011a6d893214745d2d083ce951'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB080F1993C128E91DA77',
+    id: '3EB0E0B6D7D7F4BAA6DF02',
     participant: undefined
   },
-  messageTimestamp: 1712179639,
+  messageTimestamp: 1712180240,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -154,9 +154,9 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_2a9609fb-0fdc-4799-893f-cae7d289ead3',
+  ref: 'ans_42ac3c20-29d4-41b2-8324-a3a4497edbb8',
   answer: 'Gracias por usar Eribot. 🤖',
-  keyword: 'key_257a086c-bb5a-469a-956f-7e502fc0a76b',
+  keyword: 'key_7b7b9bc6-834b-46f8-9deb-2222db32a4bf',
   options: {
     ref: null,
     idle: null,
@@ -169,12 +169,12 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '2cbf4da64f568dc496341dfc1a366d58'
+  refSerialize: 'cf47d72bb2a8e0ce11c0083037cda523'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_3d061d49-dc39-491a-82fa-fd58e9ed53dd',
+  ref: 'ans_8cda1afd-c233-4b6b-89ba-85d04f6691cd',
   answer: 'Por favor califica nuestro servicio del: *1 al 5* ⭐⭐⭐⭐⭐',
-  keyword: 'ans_2a9609fb-0fdc-4799-893f-cae7d289ead3',
+  keyword: 'ans_42ac3c20-29d4-41b2-8324-a3a4497edbb8',
   options: {
     ref: null,
     idle: null,
@@ -187,88 +187,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'b9917023ccd9128427c1528385275b16'
+  refSerialize: 'da5e4f5cbd3a3f142c6d0f8ee5883984'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '593959142592@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0F026456E695975B781',
+    id: '3EB06465CA038FF99730E9',
     participant: undefined
   },
-  messageTimestamp: 1712179641,
-  pushName: 'AB 💤',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'a',
-      contextInfo: [ContextInfo],
-      inviteLinkGroupTypeV2: 0
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'a',
-  from: '593959142592'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '593959142592@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB0689CC18518D86DBC77',
-    participant: undefined
-  },
-  messageTimestamp: 1712179642,
-  pushName: 'AB 💤',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'asd',
-      contextInfo: [ContextInfo],
-      inviteLinkGroupTypeV2: 0
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'asd',
-  from: '593959142592'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '593959142592@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB070C48BBBCFFDF8BBF1',
-    participant: undefined
-  },
-  messageTimestamp: 1712179646,
-  pushName: 'AB 💤',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'soy goddd',
-      contextInfo: [ContextInfo],
-      inviteLinkGroupTypeV2: 0
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'soy goddd',
-  from: '593959142592'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '593959142592@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB0F559955539ADFA32D7',
-    participant: undefined
-  },
-  messageTimestamp: 1712179648,
+  messageTimestamp: 1712180245,
   pushName: 'AB 💤',
   broadcast: false,
   message: Message {
@@ -286,9 +214,9 @@
   from: '593959142592'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_edadf1a8-4b51-4089-befb-9bb1ff21b5e1',
+  ref: 'ans_9765f8b3-117d-49bd-8805-8aa0e83d82c5',
   answer: 'Hasta la proxima. 👋',
-  keyword: 'key_8c013252-17d5-4297-9070-647292b22eca',
+  keyword: 'key_4e88ea61-e83e-4531-acab-a4c591bca333',
   options: {
     ref: null,
     idle: null,
@@ -301,5 +229,71 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '2854fcbfcd63ef1206e72edf11a9f204'
+  refSerialize: '27fcc59bacee6e2588514e7dcf5fc736'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB09C876D3AF3A454BAEB',
+    participant: undefined
+  },
+  messageTimestamp: 1712180600,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'hola',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '593959142592'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_8856628d-04bb-41a9-b7db-0315b7bc86a8',
+  keyword: 'key_2e8dad64-838b-43eb-93b8-326f3fe944ff',
+  answer: '👋 ¡Hola soy Eribot! Antes de continuar por favor escribe tu numero de cedula. 🪪',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '06fb632dd860f79addfefbc163715135'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '593959142592@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0BFC596139850D022F9',
+    participant: undefined
+  },
+  messageTimestamp: 1712180605,
+  pushName: 'AB 💤',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '8767tg',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '8767tg',
+  from: '593959142592'
 }
