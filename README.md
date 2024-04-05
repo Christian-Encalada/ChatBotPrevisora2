@@ -25,13 +25,16 @@ const main = async () => {
     })
 }
 
+
+
+
+```
 Requisitos previos:
 Tener instalado: 
 Nodejs
 git
 
 
-```
 Para empezar usar este codigo sigue los siguientes pasos:
 
 clona el repositorio en tu maquina utilizando un IDE como Visual Studio.
